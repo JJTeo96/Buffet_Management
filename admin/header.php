@@ -44,7 +44,7 @@ include('../config/database.php');
         <!-- Sidebar  -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3 style="text-align:center">Admin</h3>
+                <h3 style="text-align:center">Admin Dashboard</h3>
             </div>
 
             <ul class="list-unstyled components">
