@@ -53,22 +53,11 @@ include('../../config/database.php');
                 </p>
                 
                 <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li>
-                            <a href="#">Home 1</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Home 3</a>
-                        </li>
-                    </ul>
+                    <a href="#homeSubmenu">Home</a>
                 </li>
 
                 <li>
-                    <a href="#">About</a>
+                    <a href="index.php">Food Management</a>
                 </li>
 
                 <li>

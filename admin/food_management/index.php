@@ -44,9 +44,9 @@
 						<td><?php echo $row['foodQuantity']; ?></td>
 						<td><?php echo $row['foodPrice']; ?></td>
 						<td>
-							<a href="#edit<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-warning"><span class="glyphicon glyphicon-edit"></span> Edit</a> || 
-							<a href="#del<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a> ||
-                            <!-- <a href="#del<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> View</a> -->
+							<a href="#edit<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
+							<a href="#del<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
+                            <a href="#view<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
 							<?php include('button.php'); ?>
 						</td>
 					</tr>
