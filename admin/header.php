@@ -2,8 +2,9 @@
 // Initialize the session
 session_start();
 //create an array to set page-level variables
-$page=array();
- 
+//$page=array();
+//$page['title']='Admin Dashboard';  
+
 // Check if the user is logged in, if not then redirect him to login page
 if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     header("location: ../admin_login/login.php");
@@ -158,8 +159,6 @@ include('../config/database.php');
             });
         });
     </script>
-</body>
 
-</html>
 
 <!--header ends-->
