@@ -3,8 +3,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Delete</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <center><h4 class="modal-title" id="myModalLabel">Delete</h4></center>
                 </div>
                 <div class="modal-body">
 				<?php
@@ -12,8 +12,8 @@
 					$drow=mysqli_fetch_array($del);
 				?>
 				<div class="container-fluid">
-					<h5><center>Food Name: <strong><?php echo $drow['foodName']; ?></strong></center></h5> 
-					<h5><center>Quantity: <strong><?php echo $drow['foodQuantity']; ?></strong></center></h5> 
+					<h5>Food Name: <strong><?php echo $drow['foodName']; ?></strong></h5> 
+					<h5>Quantity: <strong><?php echo $drow['foodQuantity']; ?></strong></h5> 
                 </div> 
 				</div>
                 <div class="modal-footer">
@@ -31,8 +31,8 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Edit</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <center><h4 class="modal-title" id="myModalLabel">Edit</h4></center>
                 </div>
                 <div class="modal-body">
 				<?php
@@ -42,37 +42,37 @@
 				<div class="container-fluid">
 				<form method="POST" action="edit.php?id=<?php echo $erow['foodID']; ?>">
 					<div class="row">
-						<div class="col-lg-2">
+						<div class="col-lg-4">
 							<label style="position:relative; top:7px;">Food Name:</label>
 						</div>
-						<div class="col-lg-10">
+						<div class="col-lg-8">
 							<input type="text" name="foodName" class="form-control" value="<?php echo $erow['foodName']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
-						<div class="col-lg-2">
+						<div class="col-lg-4">
 							<label style="position:relative; top:7px;">Quantity:</label>
 						</div>
-						<div class="col-lg-10">
+						<div class="col-lg-8">
 							<input type="text" name="foodQuantity" class="form-control" value="<?php echo $erow['foodQuantity']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
-						<div class="col-lg-2">
+						<div class="col-lg-4">
 							<label style="position:relative; top:7px;">Price:</label>
 						</div>
-						<div class="col-lg-10">
+						<div class="col-lg-8">
 							<input type="text" name="foodPrice" class="form-control" value="<?php echo $erow['foodPrice']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
-						<div class="col-lg-2">
+						<div class="col-lg-4">
 							<label style="position:relative; top:7px;">Remark:</label>
 						</div>
-						<div class="col-lg-10">
+						<div class="col-lg-8">
 							<input type="text" name="foodRemark" class="form-control" value="<?php echo $erow['foodRemark']; ?>">
 						</div>
 					</div>
