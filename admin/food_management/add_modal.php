@@ -3,44 +3,44 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
+					<h4 class="modal-title" id="myModalLabel">Add New</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <center><h4 class="modal-title" id="myModalLabel">Add New</h4></center>
                 </div>
                 <div class="modal-body">
 				<div class="container-fluid">
 				<form method="POST" action="addnew.php">
-					<div class="row">
-						<div class="col-lg-2">
+					<div class="form-group">
+						<div>
 							<label class="control-label" style="position:relative; top:7px;">Food Name:</label>
 						</div>
-						<div class="col-lg-10">
+						<div>
 							<input type="text" class="form-control" name="foodName">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-2">
+					<div class="form-group">
+						<div>
 							<label class="control-label" style="position:relative; top:7px;">Quantity:</label>
 						</div>
-						<div class="col-lg-10">
+						<div>
 							<input type="text" class="form-control" name="foodQuantity">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-2">
+					<div>
+						<div>
 							<label class="control-label" style="position:relative; top:7px;">Price:</label>
 						</div>
-						<div class="col-lg-10">
+						<div>
 							<input type="text" class="form-control" name="foodPrice">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-2">
+					<div class="form-group">
+						<div>
 							<label class="control-label" style="position:relative; top:7px;">Remark:</label>
 						</div>
-						<div class="col-lg-10">
+						<div>
 							<input type="text" class="form-control" name="foodRemark">
 						</div>
 					</div>
