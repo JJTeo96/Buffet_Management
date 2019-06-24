@@ -60,7 +60,7 @@ include('../config/database.php');
                 </li>
 
                 <li>
-                    <a href="../food_management/index.php">Food Management</a>
+                    <a href="../admin/food_management/index.php">Food Management</a>
                 </li>
 
                 <li>
