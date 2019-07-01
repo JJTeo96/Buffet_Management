@@ -1,7 +1,7 @@
 <?php 
     //create an array to set page-level variables
     $page=array();
-    $page['title']='Food Management';
+    $page['title']='Promotion Management';
     /*once the file is impoted, the variables set above will become available to it*/
 
     //include the page header
@@ -24,10 +24,11 @@
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover" id="table_id">
 			<thead>
-				<th>Food ID</th>
-				<th>Name</th>
-				<th>Quantity</th>
-				<th>Price</th>
+				<th>Promotion ID</th>
+				<th>Coupon Code</th>
+				<!-- Name -->
+				<!-- Quantity -->
+				<th>Discount Rate</th>
 				<th>Action</th>
 			</thead>
             
@@ -35,18 +36,17 @@
 			<?php
 				include('conn.php');
 				
-				$query=mysqli_query($conn,"select * from `food_details`");
+				$query=mysqli_query($conn,"select * from `promotion`");
 				while($row=mysqli_fetch_array($query)){
 					?>
 					<tr>
-						<td><?php echo $row['foodID']; ?></td>
-						<td><?php echo $row['foodName']; ?></td>
-						<td><?php echo $row['foodQuantity']; ?></td>
-						<td><?php echo $row['foodPrice']; ?></td>
+						<td><?php echo $row['pro_id']; ?></td>
+						<td><?php echo $row['coupon_code']; ?></td>
+						<td><?php echo $row['discount_rate']; ?></td>
 						<td>
-							<a href="#edit<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
-							<a href="#del<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
-                            <a href="#view<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
+							<a href="#edit<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
+							<a href="#del<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
+                            <a href="#view<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
 							<?php include('button.php'); ?>
 						</td>
 					</tr>
