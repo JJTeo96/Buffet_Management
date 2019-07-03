@@ -57,7 +57,11 @@ include('../../config/database.php');
                 </li>
 
                 <li>
-                    <a href="index.php">Food Management</a>
+                    <a href="../food_management/index.php">Food Management</a>
+                </li>
+
+                <li>
+                    <a href="index.php">Promotion Management</a>
                 </li>
 
                 <li>
