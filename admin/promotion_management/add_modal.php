@@ -11,37 +11,19 @@
 				<form method="POST" action="addnew.php">
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Food Name:</label>
+							<label class="control-label" style="position:relative; top:7px;">Coupon Code:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="foodName">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="form-group">
-						<div>
-							<label class="control-label" style="position:relative; top:7px;">Quantity:</label>
-						</div>
-						<div>
-							<input type="text" class="form-control" name="foodQuantity">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div>
-						<div>
-							<label class="control-label" style="position:relative; top:7px;">Price:</label>
-						</div>
-						<div>
-							<input type="text" class="form-control" name="foodPrice">
+							<input type="text" class="form-control" name="coupon_code">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Remark:</label>
+							<label class="control-label" style="position:relative; top:7px;">Discount Rate:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="foodRemark">
+							<input type="text" class="form-control" name="discount_rate">
 						</div>
 					</div>
                 </div> 

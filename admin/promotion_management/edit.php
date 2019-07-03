@@ -3,12 +3,11 @@
 	
 	$id=$_GET['id'];
 	
-	$foodName=$_POST['foodName'];
-	$foodQuantity=$_POST['foodQuantity'];
-	$foodPrice=$_POST['foodPrice'];
-	$foodRemark=$_POST['foodRemark'];
+	$coupon_code=$_POST['coupon_code'];
+	$discount_rate=$_POST['discount_rate'];
+	// $foodRemark=$_POST['foodRemark'];
 	
-	mysqli_query($conn,"update food_details set foodName='$foodName', foodQuantity='$foodQuantity', foodPrice='$foodPrice', foodRemark='$foodRemark' where foodID='$id'");
+	mysqli_query($conn,"update promotion set coupon_code='$coupon_code', discount_rate='$discount_rate' where pro_id='$id'");
 	header('location:index.php');
 
 ?>

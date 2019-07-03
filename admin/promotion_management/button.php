@@ -1,5 +1,5 @@
 <!-- Delete -->
-    <div class="modal fade" id="del<?php echo $row['foodID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="del<?php echo $row['pro_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -8,17 +8,16 @@
                 </div>
                 <div class="modal-body">
 				<?php
-					$del=mysqli_query($conn,"select * from food_details where foodID='".$row['foodID']."'");
+					$del=mysqli_query($conn,"select * from promotion where pro_id='".$row['pro_id']."'");
 					$drow=mysqli_fetch_array($del);
 				?>
 				<div class="container-fluid">
-					<h5>Food Name: <strong><?php echo $drow['foodName']; ?></strong></h5> 
-					<h5>Quantity: <strong><?php echo $drow['foodQuantity']; ?></strong></h5> 
+					<h5>Coupon Code: <strong><?php echo $drow['coupon_code']; ?></strong></h5> 
                 </div> 
 				</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                    <a href="delete.php?id=<?php echo $row['foodID']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                    <a href="delete.php?id=<?php echo $row['pro_id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 </div>
 				
             </div>
@@ -27,7 +26,7 @@
 <!-- /.modal -->
 
 <!-- Edit -->
-    <div class="modal fade" id="edit<?php echo $row['foodID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="edit<?php echo $row['pro_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -36,44 +35,26 @@
                 </div>
                 <div class="modal-body">
 				<?php
-					$edit=mysqli_query($conn,"select * from food_details where foodID='".$row['foodID']."'");
+					$edit=mysqli_query($conn,"select * from promotion where pro_id='".$row['pro_id']."'");
 					$erow=mysqli_fetch_array($edit);
 				?>
 				<div class="container-fluid">
-				<form method="POST" action="edit.php?id=<?php echo $erow['foodID']; ?>">
+				<form method="POST" action="edit.php?id=<?php echo $erow['pro_id']; ?>">
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Food Name:</label>
+							<label style="position:relative; top:7px;">Coupon Code:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" name="foodName" class="form-control" value="<?php echo $erow['foodName']; ?>">
+							<input type="text" name="coupon_code" class="form-control" value="<?php echo $erow['coupon_code']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Quantity:</label>
+							<label style="position:relative; top:7px;">Discount Rate:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" name="foodQuantity" class="form-control" value="<?php echo $erow['foodQuantity']; ?>">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Price:</label>
-						</div>
-						<div class="col-lg-8">
-							<input type="text" name="foodPrice" class="form-control" value="<?php echo $erow['foodPrice']; ?>">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Remark:</label>
-						</div>
-						<div class="col-lg-8">
-							<input type="text" name="foodRemark" class="form-control" value="<?php echo $erow['foodRemark']; ?>">
+							<input type="text" name="discount_rate" class="form-control" value="<?php echo $erow['discount_rate']; ?>">
 						</div>
 					</div>
                 </div> 
@@ -89,7 +70,7 @@
 <!-- /.modal -->
 
 <!-- View -->
-<div class="modal fade" id="view<?php echo $row['foodID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="view<?php echo $row['pro_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -98,44 +79,26 @@
                 </div>
                 <div class="modal-body">
 				<?php
-					$edit=mysqli_query($conn,"select * from food_details where foodID='".$row['foodID']."'");
+					$edit=mysqli_query($conn,"select * from promotion where pro_id='".$row['pro_id']."'");
 					$erow=mysqli_fetch_array($edit);
 				?>
 				<div class="container-fluid">
-				<form method="POST" action="edit.php?id=<?php echo $erow['foodID']; ?>">
+				<form method="POST" action="edit.php?id=<?php echo $erow['pro_id']; ?>">
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Food Name:</label>
+							<label style="position:relative; top:7px;">Coupon Code:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" readonly  name="foodName" class="form-control" value="<?php echo $erow['foodName']; ?>">
+							<input type="text" readonly  name="coupon_code" class="form-control" value="<?php echo $erow['coupon_code']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Quantity:</label>
+							<label style="position:relative; top:7px;">Discount Rate:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" readonly  name="foodQuantity" class="form-control" value="<?php echo $erow['foodQuantity']; ?>">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Price:</label>
-						</div>
-						<div class="col-lg-8">
-							<input type="text" readonly  name="foodPrice" class="form-control" value="<?php echo $erow['foodPrice']; ?>">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Remark:</label>
-						</div>
-						<div class="col-lg-8">
-							<input type="text" name="foodRemark" readonly  class="form-control" value="<?php echo $erow['foodRemark']; ?>">
+							<input type="text" readonly  name="discount_rate" class="form-control" value="<?php echo $erow['discount_rate']; ?>">
 						</div>
 					</div>
                 </div> 
