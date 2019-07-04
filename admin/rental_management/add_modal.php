@@ -11,19 +11,19 @@
 				<form method="POST" action="addnew.php">
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Coupon Code:</label>
+							<label class="control-label" style="position:relative; top:7px;">Furniture Name:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="coupon_code">
+							<input type="text" class="form-control" name="furniture_name">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Discount Rate:</label>
+							<label class="control-label" style="position:relative; top:7px;">Price:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="discount_rate">
+							<input type="text" class="form-control" name="rental_price">
 						</div>
 					</div>
                 </div> 

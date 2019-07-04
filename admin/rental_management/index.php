@@ -1,7 +1,7 @@
 <?php 
     //create an array to set page-level variables
     $page=array();
-    $page['title']='Promotion Management';
+    $page['title']='Rental Services Management';
     /*once the file is impoted, the variables set above will become available to it*/
 
     //include the page header
@@ -24,11 +24,10 @@
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover" id="table_id">
 			<thead>
-				<th>Promotion ID</th>
-				<th>Coupon Code</th>
-				<!-- Name -->
+				<th>Furniture ID</th>
+				<th>Furniture Name</th>
 				<!-- Quantity -->
-				<th>Discount Rate</th>
+				<th>Rental Price</th>
 				<th>Action</th>
 			</thead>
             
@@ -36,17 +35,17 @@
 			<?php
 				include('conn.php');
 				
-				$query=mysqli_query($conn,"select * from `promotion`");
+				$query=mysqli_query($conn,"select * from `rental_details`");
 				while($row=mysqli_fetch_array($query)){
 					?>
 					<tr>
-						<td><?php echo $row['pro_id']; ?></td>
-						<td><?php echo $row['coupon_code']; ?></td>
-						<td><?php echo $row['discount_rate'];?>%</td>
+						<td><?php echo $row['rental_id']; ?></td>
+						<td><?php echo $row['furniture_name']; ?></td>
+						<td><?php echo $row['rental_price'];?>%</td>
 						<td>
-							<a href="#edit<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
-							<a href="#del<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
-                            <a href="#view<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
+							<a href="#edit<?php echo $row['rental_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
+							<a href="#del<?php echo $row['rental_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
+                            <a href="#view<?php echo $row['rental_id']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
 							<?php include('button.php'); ?>
 						</td>
 					</tr>

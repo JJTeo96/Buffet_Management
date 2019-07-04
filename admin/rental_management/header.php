@@ -61,7 +61,11 @@ include('../../config/database.php');
                 </li>
 
                 <li>
-                    <a href="index.php">Promotion Management</a>
+                    <a href="../promotion_management/index.php">Promotion Management</a>
+                </li>
+
+                <li>
+                    <a href="index.php">Furniture Management</a>
                 </li>
 
                 <li>

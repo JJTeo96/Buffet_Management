@@ -1,12 +1,12 @@
 <?php
 	include('conn.php');
 	
-	$coupon_code=$_POST['coupon_code'];
-	$discount_rate=$_POST['discount_rate'];
+	$furniture_name=$_POST['furniture_name'];
+	$rental_price=$_POST['rental_price'];
 	// $foodRemark=$_POST['foodRemark'];
 	
 	
-	mysqli_query($conn,"insert into promotion (coupon_code, discount_rate) values ('$coupon_code', '$discount_rate')");
+	mysqli_query($conn,"insert into rental_details (furniture_name, rental_price) values ('$furniture_name', '$rental_price')");
 	header('location:index.php');
 
 ?>

@@ -3,11 +3,11 @@
 	
 	$id=$_GET['id'];
 	
-	$coupon_code=$_POST['coupon_code'];
-	$discount_rate=$_POST['discount_rate'];
+	$furniture_name=$_POST['furniture_name'];
+	$rental_price=$_POST['rental_price'];
 	// $foodRemark=$_POST['foodRemark'];
 	
-	mysqli_query($conn,"update promotion set coupon_code='$coupon_code', discount_rate='$discount_rate' where pro_id='$id'");
+	mysqli_query($conn,"update rental_details set furniture_name='$furniture_name', rental_price='$rental_price' where rental_id='$id'");
 	header('location:index.php');
 
 ?>
