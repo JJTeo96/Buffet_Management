@@ -68,6 +68,10 @@ include('../config/database.php');
                 </li>
 
                 <li>
+                    <a href="../rental_management/index.php">Furniture Management</a>
+                </li>
+
+                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
