@@ -26,7 +26,7 @@
 			<thead>
 				<th>Furniture ID</th>
 				<th>Furniture Name</th>
-				<!-- Quantity -->
+				<th>Quantity</th>
 				<th>Rental Price</th>
 				<th>Action</th>
 			</thead>
@@ -41,6 +41,7 @@
 					<tr>
 						<td><?php echo $row['rental_id']; ?></td>
 						<td><?php echo $row['furniture_name']; ?></td>
+						<td><?php echo $row['quantity']; ?></td>
 						<td><?php echo $row['rental_price'];?></td>
 						<td>
 							<a href="#edit<?php echo $row['rental_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 

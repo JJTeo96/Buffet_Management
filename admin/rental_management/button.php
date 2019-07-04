@@ -51,6 +51,15 @@
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
+							<label style="position:relative; top:7px;">Quantity:</label>
+						</div>
+						<div class="col-lg-8">
+							<input type="text" name="quantity" class="form-control" value="<?php echo $erow['quantity']; ?>">
+						</div>
+					</div>
+					<div style="height:10px;"></div>
+					<div class="row">
+						<div class="col-lg-4">
 							<label style="position:relative; top:7px;">Price:</label>
 						</div>
 						<div class="col-lg-8">
@@ -90,6 +99,15 @@
 						</div>
 						<div class="col-lg-8">
 							<input type="text" readonly  name="furniture_name" class="form-control" value="<?php echo $erow['furniture_name']; ?>">
+						</div>
+					</div>
+					<div style="height:10px;"></div>
+					<div class="row">
+						<div class="col-lg-4">
+							<label style="position:relative; top:7px;">Quantity:</label>
+						</div>
+						<div class="col-lg-8">
+							<input type="text" readonly name="quantity" class="form-control" value="<?php echo $erow['quantity']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
