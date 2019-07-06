@@ -55,10 +55,10 @@ include('../config/database.php');
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Menu</a>
+              <a class="nav-link" href="#">Package</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Package</a>
+              <a class="nav-link" href="#">Promotion</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
@@ -71,14 +71,14 @@ include('../config/database.php');
                     echo '<li id="order-button" class="no-bullets">';
                     echo '<a href="../user_login/logout.php">';
                     echo '<div class="button-small button-3d button-rounded button">';
-                    echo 'Logout';
-                    echo '<i class="fas fa-sign-in-alt">';
+                    echo 'Logout ';
+                    echo '<i class="fas fa-sign-out-alt">';
                     echo '</i></div></a>';
                 }else{
                     echo '<li id="order-button" class="no-bullets">';
                     echo '<a href="../user_login/login.php">';
                     echo '<div class="button-small button-3d button-rounded button">';
-                    echo 'Login';
+                    echo 'Login ';
                     echo '<i class="fas fa-sign-in-alt">';
                     echo '</i></div></a>';
                 }
