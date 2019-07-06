@@ -44,8 +44,11 @@
               <a class="nav-link" href="#">About Us</a>
             </li>
           </ul>
-          <li id="order-button" class="no-bullets"><a href="#">
+          <!-- <li id="order-button" class="no-bullets"><a href="#">
             <div class="button-small button-3d button-rounded button">Order Buffet <i class="fas fa-truck"></i></div></a>
+          </li> -->
+          <li id="order-button" class="no-bullets"><a href="#">
+            <div class="button-small button-3d button-rounded button">Login <i class="fas fa-sign-in-alt"></i></div></a>
           </li>
         </div>
       </nav>
