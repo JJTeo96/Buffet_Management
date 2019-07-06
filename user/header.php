@@ -1,3 +1,23 @@
+<?php
+// Initialize the session
+session_start();
+//create an array to set page-level variables
+//$page=array();
+//$page['title']='Admin Dashboard';  
+
+// Check if the user is logged in, if not then redirect him to login page
+// if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+//     header("location: ../admin_login/login.php");
+//     exit;
+// }
+
+include('../config/database.php');
+?>
+
+<?php 
+  $activePage = basename($_SERVER['PHP_SELF'], ".php");
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -44,12 +64,33 @@
               <a class="nav-link" href="#">About Us</a>
             </li>
           </ul>
+          
+            <?php 
+                // Check if the user is logged in, if not then redirect him to login page
+                if(isset($_SESSION["loggedin"])){
+                    echo '<li id="order-button" class="no-bullets">';
+                    echo '<a href="../user_login/logout.php">';
+                    echo '<div class="button-small button-3d button-rounded button">';
+                    echo 'Logout';
+                    echo '<i class="fas fa-sign-in-alt">';
+                    echo '</i></div></a>';
+                }else{
+                    echo '<li id="order-button" class="no-bullets">';
+                    echo '<a href="../user_login/login.php">';
+                    echo '<div class="button-small button-3d button-rounded button">';
+                    echo 'Login';
+                    echo '<i class="fas fa-sign-in-alt">';
+                    echo '</i></div></a>';
+                }
+                error_reporting(0); 
+            ?>
+         
           <!-- <li id="order-button" class="no-bullets"><a href="#">
             <div class="button-small button-3d button-rounded button">Order Buffet <i class="fas fa-truck"></i></div></a>
           </li> -->
-          <li id="order-button" class="no-bullets"><a href="#">
+          <!-- <li id="order-button" class="no-bullets"><a href="#">
             <div class="button-small button-3d button-rounded button">Login <i class="fas fa-sign-in-alt"></i></div></a>
-          </li>
+          </li> -->
         </div>
       </nav>
     </header>
