@@ -70,14 +70,14 @@ include('../config/database.php');
                 if(isset($_SESSION["loggedin"])){
                     echo '<li id="order-button" class="no-bullets">';
                     echo '<a href="../user_login/logout.php">';
-                    echo '<div class="button-small button-3d button-rounded button">';
+                    echo '<div class="button-small button-3d button-caution button-pill">';
                     echo 'Logout ';
                     echo '<i class="fas fa-sign-out-alt">';
                     echo '</i></div></a>';
                 }else{
                     echo '<li id="order-button" class="no-bullets">';
                     echo '<a href="../user_login/login.php">';
-                    echo '<div class="button-small button-3d button-rounded button">';
+                    echo '<div class="button-small button-3d button-primary button-pill"">';
                     echo 'Login ';
                     echo '<i class="fas fa-sign-in-alt">';
                     echo '</i></div></a>';
