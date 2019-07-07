@@ -60,20 +60,28 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             $confirm_password_err = "Password did not match.";
         }
     }
+
+    // Validate IC
+    if(empty(trim($_POST["userIC"]))){
+        $userIC_err = "Please enter a IC.";     
+    }else{
+        $userIC = trim($_POST["userIC"]);
+    }
     
     // Check input errors before inserting in database
     if(empty($userName_err) && empty($userPassword_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO user (userName, userPassword) VALUES (?, ?)";
+        $sql = "INSERT INTO user (userName, userPassword, userIC) VALUES (?, ?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_password);
-            
+            mysqli_stmt_bind_param($stmt, "sss", $param_username, $param_password, $param_ic);
             // Set parameters
             $param_username = $userName;
             $param_password = password_hash($userPassword, PASSWORD_DEFAULT); // Creates a password hash
+            $param_ic = $userIC;
+            
             
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){ 
@@ -123,6 +131,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <label>Confirm Password</label>
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
+            </div>
+            <div class="form-group <?php echo (!empty($userIC_err)) ? 'has-error' : ''; ?>">
+                <label>I/C</label>
+                <input type="test" name="userIC" class="form-control" value="<?php echo $userIC; ?>">
+                <span class="help-block"><?php echo $userIC_err; ?></span>
             </div>
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
