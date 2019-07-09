@@ -55,7 +55,7 @@ include('../config/database.php');
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#">Package</a>
+              <a class="nav-link" href="package.php">Package</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Promotion</a>
