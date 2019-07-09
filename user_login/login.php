@@ -29,7 +29,7 @@
             <div class="row justify-content-center" style="margin-top:10%">
                 <div class="col-md-4">
                     <div class="card ">
-                        <div class="card-header">Login</div>
+                        <div class="card-header">User Login</div>
                         <div class="card-body">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
