@@ -54,7 +54,7 @@ include('../config/database.php');
 
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
+            <li class="nav-item <?= ($activePage == 'package') ? 'active':''; ?>">
               <a class="nav-link" href="package.php">Package</a>
             </li>
             <li class="nav-item">
