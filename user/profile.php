@@ -4,23 +4,6 @@
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<?php
-  if(isset($_POST['update'])){
-
-  $userID=$_POST['userID'];
-  $userName=$_POST['userName'];
-  $userPassword=$_POST['userPassword'];
-  $userIC=$_POST['userIC'];
-  $userEmail=$_POST['userEmail'];
-  $userAddress=$_POST['userAddress'];
-  $userContact1=$_POST['userContact1'];
-  $userContact2=$_POST['userContact2'];
-
-  $query2=$mysqli->query("update user set userID='$userID',userName='$userName',userPassword='$userPassword',
-          userIC='$userIC',userEmail='$userEmail',userAddress='$userAddress',userContact1='$userContact1',userContact2='$userContact2' where userID='$userID'");
-  }
-?>
-
 <div class="container" style="margin-top:1%">
 		<div class="col-md-9" style="margin: 0 auto">
 		    <div class="card">
@@ -34,8 +17,7 @@
                 
 		            <div class="row">
 		                <div class="col-md-12">
-		                    <form method="POST" action="">
-                        
+		                    <form>
                               <div class="form-group row">
                                 <label for="username" class="col-4 col-form-label">User Name*</label> 
                                 <div class="col-8">
@@ -98,8 +80,6 @@
                                 </div>
                               </div>
                             </form>
-                            <?php echo "$userName" ?>
-                            <?php echo $erow['userName'];?>
 		                </div>
 		            </div>
 		            
