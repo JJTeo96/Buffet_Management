@@ -64,7 +64,16 @@ include('../config/database.php');
               <a class="nav-link" href="#">About Us</a>
             </li>
           </ul>
-          
+
+          <ul class="navbar-nav mr-right">
+          <li class="nav-item dropdown" style="margin-right:20px">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User <?php echo $_SESSION['userName'] ?></a>
+            <div class="dropdown-menu" aria-labelledby="dropdown05">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
             <?php 
                 // Check if the user is logged in, if not then redirect him to login page
                 if(isset($_SESSION["loggedin"])){
@@ -84,6 +93,7 @@ include('../config/database.php');
                 }
                 error_reporting(0); 
             ?>
+            </ul>
          
           <!-- <li id="order-button" class="no-bullets"><a href="#">
             <div class="button-small button-3d button-rounded button">Order Buffet <i class="fas fa-truck"></i></div></a>
