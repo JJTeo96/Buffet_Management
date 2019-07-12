@@ -45,7 +45,7 @@ include('../config/database.php');
 
   <body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top bg-dark">
         <a class="navbar-brand" href="index.php">Buffet Catering</a>
         
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,14 +67,16 @@ include('../config/database.php');
 
           <ul class="navbar-nav mr-right">
             <?php 
+            $Drop=$_SESSION["userName"];
+            
                   // Check if the user is logged in, if not then redirect him to login page
                   if(isset($_SESSION["userName"]) == 1){
                       echo '<li class="nav-item dropdown" style="margin-right:20px">';
-                      echo '<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User ';
-                      echo $_SESSION["userName"];'</a>';
+                      echo '<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User '.$Drop.'</a>';
+                      // echo $_SESSION["userName"];'</a>';
                       echo '<div class="dropdown-menu" aria-labelledby="dropdown05">';
-                      echo '<a class="dropdown-item" href="#">Action</a>';
-                      echo '<a class="dropdown-item" href="#">Another action</a>';
+                      echo '<a class="dropdown-item" href="profile.php">Profile</a>';
+                      // echo '<a class="dropdown-item" href="#">Another action</a>';
                       echo '</div></li>';
                   }else{
                       echo '';
@@ -110,3 +112,13 @@ include('../config/database.php');
         </div>
       </nav>
     </header>
+
+     <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="../../assets/js/vendor/holder.min.js"></script>
