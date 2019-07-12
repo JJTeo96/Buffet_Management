@@ -66,17 +66,24 @@ include('../config/database.php');
           </ul>
 
           <ul class="navbar-nav mr-right">
-          <li class="nav-item dropdown" style="margin-right:20px">
-            <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User <?php echo $_SESSION['userName'] ?></a>
-            <div class="dropdown-menu" aria-labelledby="dropdown05">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
+            <?php 
+                  // Check if the user is logged in, if not then redirect him to login page
+                  if(isset($_SESSION["userName"]) == 1){
+                      echo '<li class="nav-item dropdown" style="margin-right:20px">';
+                      echo '<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User ';
+                      echo $_SESSION["userName"];'</a>';
+                      echo '<div class="dropdown-menu" aria-labelledby="dropdown05">';
+                      echo '<a class="dropdown-item" href="#">Action</a>';
+                      echo '<a class="dropdown-item" href="#">Another action</a>';
+                      echo '</div></li>';
+                  }else{
+                      echo '';
+                  }
+                 
+            ?>
             <?php 
                 // Check if the user is logged in, if not then redirect him to login page
-                if(isset($_SESSION["loggedin"])){
+                if(isset($_SESSION["userName"]) == 1){
                     echo '<li id="order-button" class="no-bullets">';
                     echo '<a href="../user_login/logout.php">';
                     echo '<div class="button-small button-3d button-caution button-pill">';
@@ -91,7 +98,6 @@ include('../config/database.php');
                     echo '<i class="fas fa-sign-in-alt">';
                     echo '</i></div></a>';
                 }
-                error_reporting(0); 
             ?>
             </ul>
          
