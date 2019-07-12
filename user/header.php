@@ -67,7 +67,7 @@ include('../config/database.php');
 
           <ul class="navbar-nav mr-right">
           <li class="nav-item dropdown" style="margin-right:20px">
-            <a class="nav-link dropdown-toggle" href="#" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User <?php echo $_SESSION['userName'] ?></a>
+            <a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User <?php echo $_SESSION['userName'] ?></a>
             <div class="dropdown-menu" aria-labelledby="dropdown05">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
