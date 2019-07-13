@@ -53,7 +53,7 @@ include('../config/database.php');
                         $currentDateTime = date('Y-m-d H:i:s');
                         echo $currentDateTime;
                     ?> -->
-                    <button type="button" class="btn btn-light btn-block"><i class="fas fa-user"></i> &nbsp; Profile</button>
+                    <a href="addAdmin.php"><button type="button" class="btn btn-light btn-block"><i class="fas fa-user"></i> &nbsp; Add Administrator</button></a>
                 </p>
                 
                 <li class="active">
