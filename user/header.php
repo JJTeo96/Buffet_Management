@@ -66,6 +66,10 @@ include('../config/database.php');
           </ul>
 
           <ul class="navbar-nav mr-right">
+            <?php
+              error_reporting(0); // Turn off all error reporting
+            ?>
+            
             <?php 
             $Drop=$_SESSION["userName"];
             
