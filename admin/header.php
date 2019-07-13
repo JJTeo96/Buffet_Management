@@ -57,7 +57,7 @@ include('../config/database.php');
                 </p>
                 
                 <li class="active">
-                    <a href="#homeSubmenu">Home</a>
+                    <a href="index.php">Home</a>
                 </li>
 
                 <li>
@@ -73,16 +73,13 @@ include('../config/database.php');
                 </li>
 
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin / User Data</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="adminData.php">Admin Data</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
+                            <a href="userData.php">User Data</a>
                         </li>
                     </ul>
                 </li>
