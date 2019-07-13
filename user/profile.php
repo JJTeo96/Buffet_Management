@@ -27,44 +27,56 @@
                     ?>
 		                    <form method="POST" action="action.php">
                               <div class="form-group row">
-                                <label for="username" class="col-4 col-form-label">User Name</label> 
+                                <label for="username" class="col-4 col-form-label">User Name : </label> 
                                 <div class="col-8">
-                                  <input id="username" name="username" placeholder="Username" class="form-control here"  type="text" value="<?php echo $value['userName'] ?>">
+                                  <!-- <input id="username" name="username" placeholder="Username" class="form-control here"  type="text" value="<?php echo $value['userName'] ?>"> -->
+                                  <?php echo $value['userName'] ?>
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="name" class="col-4 col-form-label">IC</label> 
+                                <label for="name" class="col-4 col-form-label">IC : </label> 
                                 <div class="col-8">
-                                  <input id="" name="userIC" placeholder="IC" class="form-control here" type="text" value="<?php echo $value['userIC'] ?>">
+                                  <?php echo $value['userIC'] ?>
+                                  <!-- <input id="" name="userIC" placeholder="IC" class="form-control here" type="text" value="<?php echo $value['userIC'] ?>"> -->
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="lastname" class="col-4 col-form-label">Email</label> 
+                                <label for="lastname" class="col-4 col-form-label">Email : </label> 
                                 <div class="col-8">
-                                  <input id="" name="userEmail" placeholder="Email" class="form-control here" type="email" value="<?php echo $value['userEmail'] ?>">
+                                  <?php echo $value['userEmail'] ?>
+                                  <!-- <input id="" name="userEmail" placeholder="Email" class="form-control here" type="email" value="<?php echo $value['userEmail'] ?>"> -->
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="text" class="col-4 col-form-label">Address</label> 
+                                <label for="text" class="col-4 col-form-label">Address : </label> 
                                 <div class="col-8">
-                                  <textarea id="" name="userAddress" placeholder="Address" class="form-control here"  type="text"><?php echo $value['userAddress'] ?></textarea>
+                                  <?php echo $value['userAddress'] ?>
+                                  <!-- <textarea id="" name="userAddress" placeholder="Address" class="form-control here"  type="text"><?php echo $value['userAddress'] ?></textarea> -->
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="email" class="col-4 col-form-label">Contact 1</label> 
+                                <label for="email" class="col-4 col-form-label">Contact 1 : </label> 
                                 <div class="col-8">
-                                  <input id="" name="userContact1" placeholder="Contact 1" class="form-control here"  type="text" value="<?php echo $value['userContact1'] ?>">
+                                  <?php echo $value['userContact1'] ?>
+                                  <!-- <input id="" name="userContact1" placeholder="Contact 1" class="form-control here"  type="text" value="<?php echo $value['userContact1'] ?>"> -->
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="website" class="col-4 col-form-label">Contact 2</label> 
+                                <label for="website" class="col-4 col-form-label">Contact 2 : </label> 
                                 <div class="col-8">
-                                  <input id="" name="userContact2" placeholder="Contact 2" class="form-control here" type="text" value="<?php echo $value['userContact2'] ?>">
+                                  <?php 
+                                     if(isset($_SESSION["userContact2"]) == NULL){
+                                      echo '-';
+                                  }else{
+                                    echo $value['userContact2'];
+                                  }
+                                  ?>
+                                  <!-- <input id="" name="userContact2" placeholder="Contact 2" class="form-control here" type="text" value="<?php echo $value['userContact2'] ?>"> -->
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <div class="offset-4 col-8">
-                                  <button name="update" type="submit" class="btn btn-primary">Save</button>
+                                  <!-- <button name="update" type="submit" class="btn btn-primary">Save</button> -->
                                 </div>
                               </div>
                             </form>
