@@ -49,10 +49,11 @@ include('../config/database.php');
 
             <ul class="list-unstyled components">
                 <p style="text-align: center;"> 
-                    <?php
+                    <!-- <?php
                         $currentDateTime = date('Y-m-d H:i:s');
                         echo $currentDateTime;
-                    ?>
+                    ?> -->
+                    <button type="button" class="btn btn-light btn-block"><i class="fas fa-user"></i> &nbsp; Profile</button>
                 </p>
                 
                 <li class="active">
@@ -95,11 +96,11 @@ include('../config/database.php');
                 </li>
             </ul>
 
-            <ul class="list-unstyled CTAs">
+            <!-- <ul class="list-unstyled CTAs">
                 <li>
                     <a href="#" class="download">Back To MainPage</a>
                 </li>
-            </ul>
+            </ul> -->
         </nav>
 
         <!-- Page Content  -->
