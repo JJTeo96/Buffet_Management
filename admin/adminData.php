@@ -33,7 +33,7 @@
 				while($row=mysqli_fetch_array($query)){
 					?>
 					<tr>
-						<td><?php echo $row['adminID']; ?></td>
+						<td>AD<?php echo $row['adminID']; ?></td>
 						<td><?php echo $row['adminName']; ?></td>	
 					</tr>
 					<?php
