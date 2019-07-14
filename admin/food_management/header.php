@@ -46,14 +46,16 @@ include('../../config/database.php');
 
             <ul class="list-unstyled components">
                 <p style="text-align: center;"> 
-                    <?php
+                    <!-- <?php
                         $currentDateTime = date('Y-m-d H:i:s');
                         echo $currentDateTime;
-                    ?>
+                    ?> -->
+                    <a href="../addAdmin.php"><button type="button" class="btn btn-light btn-block"><i class="fas fa-user"></i> &nbsp; Add Administrator</button></a>
+
                 </p>
                 
-                <li class="active">
-                    <a href="#homeSubmenu">Home</a>
+                <li>
+                    <a href="../index.php">Home</a>
                 </li>
 
                 <li>
@@ -69,26 +71,15 @@ include('../../config/database.php');
                 </li>
 
                 <li>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin / User Data</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
-                            <a href="#">Page 1</a>
+                            <a href="../adminData.php">Admin Data</a>
                         </li>
                         <li>
-                            <a href="#">Page 2</a>
-                        </li>
-                        <li>
-                            <a href="#">Page 3</a>
+                            <a href="../userData.php">User Data</a>
                         </li>
                     </ul>
-                </li>
-
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                
-                <li>
-                    <a href="#">Contact</a>
                 </li>
             </ul>
 

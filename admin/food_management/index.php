@@ -18,6 +18,7 @@
 <div class="container">
 	<div style="height:50px;"></div>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
+	<h1 style="text-align:center">Food Management</h1>
 		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span> Add New</a></span>
 
