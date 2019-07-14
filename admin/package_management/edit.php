@@ -10,5 +10,6 @@
 	
 	mysqli_query($conn,"update package set package_name='$package_name', package_courses='$package_courses', price='$price', min_pax='$min_pax' where package_id='$id'");
 	header('location:index.php');
+	exit;
 
 ?>

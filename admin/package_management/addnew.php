@@ -9,5 +9,6 @@
 	
 	mysqli_query($conn,"insert into package (package_name, package_courses, price, min_pax) values ('$package_name', '$package_courses', '$price', '$min_pax')");
 	header('location:index.php');
+	exit;
 
 ?>

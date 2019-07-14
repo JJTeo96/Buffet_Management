@@ -10,5 +10,5 @@
 	
 	mysqli_query($conn,"update food_details set foodName='$foodName', foodQuantity='$foodQuantity', foodPrice='$foodPrice', foodRemark='$foodRemark' where foodID='$id'");
 	header('location:index.php');
-
+	exit;
 ?>

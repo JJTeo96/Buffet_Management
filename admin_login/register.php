@@ -79,6 +79,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             if(mysqli_stmt_execute($stmt)){ 
                 // Redirect to login page
                 // header("location: login.php || ../admin_login/register.php");
+                echo '<div class="alert alert-success" role="alert">Success</div>';
+                header("Refresh: 1;");
+                exit;
             } else{
                 echo "Something went wrong. Please try again later.";
             }

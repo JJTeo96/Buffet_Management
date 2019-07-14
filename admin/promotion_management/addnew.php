@@ -9,5 +9,6 @@
 	
 	mysqli_query($conn,"insert into promotion (coupon_code, discount_rate) values ('$coupon_code', '$discount_rate')");
 	header('location:index.php');
+	exit;
 
 ?>

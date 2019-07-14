@@ -11,5 +11,6 @@
 	
 	mysqli_query($conn,"update rental_details set furniture_name='$furniture_name',quantity='$quantity', rental_price='$rental_price' where rental_id='$id'");
 	header('location:index.php');
+	exit;
 
 ?>

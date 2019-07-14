@@ -9,5 +9,6 @@
 	
 	mysqli_query($conn,"insert into rental_details (furniture_name, rental_price, quantity) values ('$furniture_name', '$rental_price', '$quantity')");
 	header('location:index.php');
+	exit;
 
 ?>
