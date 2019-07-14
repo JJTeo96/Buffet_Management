@@ -16,6 +16,7 @@
 
 <div class="container">
 	<div style="height:50px;"></div>
+	<h1 style="text-align:center">User Name List</h1>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover" id="table_id">

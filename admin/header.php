@@ -73,6 +73,10 @@ include('../config/database.php');
                 </li>
 
                 <li>
+                    <a href="../package_management/index.php">Package Management</a>
+                </li>
+
+                <li>
                     <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Admin / User Data</a>
                     <ul class="collapse list-unstyled" id="pageSubmenu">
                         <li>
@@ -82,14 +86,6 @@ include('../config/database.php');
                             <a href="userData.php">User Data</a>
                         </li>
                     </ul>
-                </li>
-
-                <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                
-                <li>
-                    <a href="#">Contact</a>
                 </li>
             </ul>
 

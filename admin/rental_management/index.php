@@ -17,6 +17,7 @@
 
 <div class="container">
 	<div style="height:50px;"></div>
+	<h1 style="text-align:center">Furniture Management</h1>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
 		<span class="pull-left"><a href="#addnew" data-toggle="modal" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span> Add New</a></span>
