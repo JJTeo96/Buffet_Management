@@ -52,35 +52,28 @@
         <!-- Three columns of text below the carousel -->
         <div class="row">
           <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+            <img class="rounded-circle" src="vendor/img/indexpackage.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Package</h2>
+            <p>Whether it’s a package that’s more pocket friendly, premium buffet that’s great to impress your guests, we have it all covered! Buffet catering great for all your celebrations</p>
+            <p><a class="btn btn-secondary" href="package.php" role="button">View details &raquo;</a></p>
           </div>
           
           <!-- /.col-lg-4 -->
           <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
+            <img class="rounded-circle" src="vendor/img/indexpromo.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>Promotion</h2>
+            <p>Up to 20% off, and other discounts you wouldn’t want to miss!</p>
+            <br/>
+            <br/>
             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
           </div>
-          
-          <!-- /.col-lg-4 -->
-          <div class="col-lg-4">
-            <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-            <h2>Heading</h2>
-            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-          </div>
-          <!-- /.col-lg-4 -->
         </div>
         <!-- /.row -->
       </div><!-- /.container -->
 
 
       <!-- FOOTER -->
-      <footer class="container">
+      <footer class="container" style="margin-top:5%">
         <p class="float-right"><a href="#">Back to top</a></p>
         <p>&copy; 2019-2019 By JJ</p>
       </footer>
