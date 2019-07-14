@@ -29,7 +29,7 @@
 					<div style="height:10px;"></div>
 					<div>
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Price:</label>
+							<label class="control-label" style="position:relative; top:7px;">Price /PAX:</label>
 						</div>
 						<div>
 							<input type="text" class="form-control" name="price">

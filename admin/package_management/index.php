@@ -28,7 +28,7 @@
 				<th>Package ID</th>
 				<th>Name</th>
 				<th>Courses</th>
-				<th>Price</th>
+				<th>Price /PAX</th>
 				<th>Min /PAX</th>
 				<th>Action</th>
 			</thead>

@@ -60,7 +60,7 @@
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Price:</label>
+							<label style="position:relative; top:7px;">Price /PAX:</label>
 						</div>
 						<div class="col-lg-8">
 							<input type="text" name="price" class="form-control" value="<?php echo $erow['price']; ?>">
@@ -122,7 +122,7 @@
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Price:</label>
+							<label style="position:relative; top:7px;">Price /PAX:</label>
 						</div>
 						<div class="col-lg-8">
 							<input type="text" readonly  name="price" class="form-control" value="<?php echo $erow['price']; ?>">
