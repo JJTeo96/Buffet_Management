@@ -1,7 +1,7 @@
 <?php include_once('header.php');?>
 
 
-<!-- <div class="container" style="margin-top:6%">
+<div class="container" style="margin-top:6%">
     <h1>Standard Buffet Packages</h1>
     <span>Choose from an extensive selection of buffet catering package that’s suitable for your budget, catered to all your celebrations</span>
 </div>
@@ -18,4 +18,4 @@
     </div>
     </div>
     
-</div> -->
+</div>
