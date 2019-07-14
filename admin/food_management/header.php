@@ -82,12 +82,6 @@ include('../../config/database.php');
                     </ul>
                 </li>
             </ul>
-
-            <ul class="list-unstyled CTAs">
-                <li>
-                    <a href="#" class="download">Back To MainPage</a>
-                </li>
-            </ul>
         </nav>
 
         <!-- Page Content  -->
