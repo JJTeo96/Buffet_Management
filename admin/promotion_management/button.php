@@ -57,7 +57,7 @@
 							<input type="text" name="discount_rate" class="form-control" value="<?php echo $erow['discount_rate']; ?>">
 						</div>
 					</div>
-					<div style="height:10px;"></div>
+					<!-- <div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
 							<label style="position:relative; top:7px;">Quantity:</label>
@@ -65,7 +65,7 @@
 						<div class="col-lg-8">
 							<input type="text" name="quantity" class="form-control" value="<?php echo $erow['quantity']; ?>">
 						</div>
-					</div>
+					</div> -->
                 </div> 
 				</div>
                 <div class="modal-footer">
