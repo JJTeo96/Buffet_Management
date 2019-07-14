@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(trim($_POST["adminName"]))){
-        $adminName_err = "Please enter a username.";
+        $adminName_err = "<p style='color:red;'>Please enter a username.</p>";
     } else{
         // Prepare a select statement
         $sql = "SELECT adminID FROM admin WHERE adminName = ?";
@@ -29,12 +29,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $adminName_err = "This username is already taken.";
+                    $adminName_err = "<p style='color:red;'>This username is already taken.</p>";
                 } else{
                     $adminName = trim($_POST["adminName"]);
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "<p style='color:red;'>Oops! Something went wrong. Please try again later.</p>";
             }
         }
          
@@ -44,20 +44,20 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Validate password
     if(empty(trim($_POST["adminPassword"]))){
-        $adminPassword_err = "Please enter a password.";     
+        $adminPassword_err = "<p style='color:red;'>Please enter a password.</p>";     
     } elseif(strlen(trim($_POST["adminPassword"])) < 6){
-        $adminPassword_err = "Password must have atleast 6 characters.";
+        $adminPassword_err = "<p style='color:red;'>Password must have atleast 6 characters.</p>";
     } else{
         $adminPassword = trim($_POST["adminPassword"]);
     }
     
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err = "<p style='color:red;'>Please confirm password.</p>";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($adminPassword_err) && ($adminPassword != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "<p style='color:red;'>Password did not match.</p>";
         }
     }
     
@@ -80,8 +80,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Redirect to login page
                 // header("location: login.php || ../admin_login/register.php");
                 echo '<div class="alert alert-success" role="alert">Success</div>';
-                header("Refresh: 1;");
-                exit;
+                $adminName = '';
+                $adminPassword ='';
+                $confirm_password ='';
+                
             } else{
                 echo "Something went wrong. Please try again later.";
             }
