@@ -1,13 +1,13 @@
 <?php 
     //create an array to set page-level variables
     $page=array();
-    $page['title']='Food Management';
+    $page['title']='Package Management';
     /*once the file is impoted, the variables set above will become available to it*/
 
     //include the page header
     include('header.php');
 ?>
-<?php include_once('header.php');?>
+
 
 <!--Head-->
 
@@ -24,10 +24,11 @@
 		<div style="height:50px;"></div>
 		<table class="table table-striped table-bordered table-hover" id="table_id">
 			<thead>
-				<th>Food ID</th>
+				<th>Package ID</th>
 				<th>Name</th>
-				<th>Quantity</th>
+				<th>Courses</th>
 				<th>Price</th>
+				<th>Min /PAX</th>
 				<th>Action</th>
 			</thead>
             
@@ -35,18 +36,19 @@
 			<?php
 				include('conn.php');
 				
-				$query=mysqli_query($conn,"select * from `food_details`");
+				$query=mysqli_query($conn,"select * from `package`");
 				while($row=mysqli_fetch_array($query)){
 					?>
 					<tr>
-						<td><?php echo $row['foodID']; ?></td>
-						<td><?php echo $row['foodName']; ?></td>
-						<td><?php echo $row['foodQuantity']; ?></td>
-						<td><?php echo $row['foodPrice']; ?></td>
+						<td><?php echo $row['package_id']; ?></td>
+						<td><?php echo $row['package_name']; ?></td>
+						<td><?php echo $row['package_courses']; ?></td>
+						<td><?php echo $row['price']; ?></td>
+						<td><?php echo $row['min_pax']; ?></td>
 						<td>
-							<a href="#edit<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
-							<a href="#del<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
-                            <a href="#view<?php echo $row['foodID']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
+							<a href="#edit<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
+							<a href="#del<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
+                            <a href="#view<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
 							<?php include('button.php'); ?>
 						</td>
 					</tr>

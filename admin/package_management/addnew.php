@@ -1,13 +1,13 @@
 <?php
 	include('conn.php');
 	
-	$foodName=$_POST['foodName'];
-	$foodQuantity=$_POST['foodQuantity'];
-	$foodPrice=$_POST['foodPrice'];
-	$foodRemark=$_POST['foodRemark'];
+	$package_name=$_POST['package_name'];
+	$package_courses=$_POST['package_courses'];
+	$price=$_POST['price'];
+	$min_pax=$_POST['min_pax'];
 	
 	
-	mysqli_query($conn,"insert into food_details (foodName, foodQuantity, foodPrice, foodRemark) values ('$foodName', '$foodQuantity', '$foodPrice', '$foodRemark')");
+	mysqli_query($conn,"insert into package (package_name, package_courses, price, min_pax) values ('$package_name', '$package_courses', '$price', '$min_pax')");
 	header('location:index.php');
 
 ?>

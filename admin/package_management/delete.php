@@ -1,7 +1,7 @@
 <?php
 	include('conn.php');
 	$id=$_GET['id'];
-	mysqli_query($conn,"delete from food_details where foodID='$id'");
+	mysqli_query($conn,"delete from package where package_id='$id'");
 	header('location:index.php');
 
 ?>

@@ -11,19 +11,19 @@
 				<form method="POST" action="addnew.php">
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Food Name:</label>
+							<label class="control-label" style="position:relative; top:7px;">Package Name:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="foodName">
+							<input type="text" class="form-control" name="package_name">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Quantity:</label>
+							<label class="control-label" style="position:relative; top:7px;">Courses:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="foodQuantity">
+							<input type="text" class="form-control" name="package_courses">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
@@ -32,16 +32,16 @@
 							<label class="control-label" style="position:relative; top:7px;">Price:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="foodPrice">
+							<input type="text" class="form-control" name="price">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Remark:</label>
+							<label class="control-label" style="position:relative; top:7px;">Min /PAX:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="foodRemark">
+							<input type="text" class="form-control" name="min_pax">
 						</div>
 					</div>
                 </div> 
