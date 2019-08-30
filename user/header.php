@@ -1,6 +1,7 @@
 <?php
 // Initialize the session
-session_start();
+//session_start();
+
 //create an array to set page-level variables
 //$page=array();
 //$page['title']='Admin Dashboard';  
@@ -11,7 +12,7 @@ session_start();
 //     exit;
 // }
 
-include('../config/database.php');
+//include('../config/database.php');
 ?>
 
 <?php 
@@ -43,79 +44,7 @@ include('../config/database.php');
 
   </head>
 
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark navbar-fixed-top bg-dark">
-        <a class="navbar-brand" href="index.php">Buffet Catering</a>
-        
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item <?= ($activePage == 'package') ? 'active':''; ?>">
-              <a class="nav-link" href="package.php">Package</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Promotion</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About Us</a>
-            </li>
-          </ul>
-
-          <ul class="navbar-nav mr-right">
-            <?php
-              error_reporting(0); // Turn off all error reporting
-            ?>
-            
-            <?php 
-            $Drop=$_SESSION["userName"];
-            
-                  // Check if the user is logged in, if not then redirect him to login page
-                  if(isset($_SESSION["userName"]) == 1){
-                      echo '<li class="nav-item dropdown" style="margin-right:20px">';
-                      echo '<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User '.$Drop.'</a>';
-                      // echo $_SESSION["userName"];'</a>';
-                      echo '<div class="dropdown-menu" aria-labelledby="dropdown05">';
-                      echo '<a class="dropdown-item" href="profile.php">Profile</a>';
-                      // echo '<a class="dropdown-item" href="#">Another action</a>';
-                      echo '</div></li>';
-                  }else{
-                      echo '';
-                  }
-                 
-            ?>
-            <?php 
-                // Check if the user is logged in, if not then redirect him to login page
-                if(isset($_SESSION["userName"]) == 1){
-                    echo '<li id="order-button" class="no-bullets">';
-                    echo '<a href="../user_login/logout.php">';
-                    echo '<div class="button-small button-3d button-caution button-pill">';
-                    echo 'Logout ';
-                    echo '<i class="fas fa-sign-out-alt">';
-                    echo '</i></div></a>';
-                }else{
-                    echo '<li id="order-button" class="no-bullets">';
-                    echo '<a href="../user_login/login.php">';
-                    echo '<div class="button-small button-3d button-primary button-pill"">';
-                    echo 'Login ';
-                    echo '<i class="fas fa-sign-in-alt">';
-                    echo '</i></div></a>';
-                }
-            ?>
-            </ul>
-         
-          <!-- <li id="order-button" class="no-bullets"><a href="#">
-            <div class="button-small button-3d button-rounded button">Order Buffet <i class="fas fa-truck"></i></div></a>
-          </li> -->
-          <!-- <li id="order-button" class="no-bullets"><a href="#">
-            <div class="button-small button-3d button-rounded button">Login <i class="fas fa-sign-in-alt"></i></div></a>
-          </li> -->
-        </div>
-      </nav>
-    </header>
+ 
 
      <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -131,8 +60,7 @@ include('../config/database.php');
 
 
     <!-- ---------------------------------------- -->
-
-    <head>
+<head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -178,7 +106,7 @@ include('../config/database.php');
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="package.php">
                         Menus
                     </a>
                 </li>
@@ -250,3 +178,27 @@ include('../config/database.php');
     </div>
 </nav>
 <!-- End navbar -->
+
+
+        <!-- JQuery Min JS -->
+        <script src="vendor/assets/js/jquery.1.12.4.min.js"></script>
+        <!-- Popper Min JS -->
+        <script src="vendor/assets/js/popper.min.js"></script>
+        <!-- Bootstrap Min JS -->
+        <script src="vendor/assets/js/bootstrap.min.js"></script>
+        <!-- Owl Carousel JS -->
+        <script src="vendor/assets/js/owl.carousel.min.js"></script>
+        <!-- Magnific Popup JS -->
+        <script src="vendor/assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- WayPonits JS -->
+        <script src="vendor/assets/js/waypoints.js"></script>
+        <!-- CounterUp JS -->
+        <script src="vendor/assets/js/jquery.counterup.min.js"></script>
+        <!-- Tilt JS -->
+        <script src="vendor/assets/js/tilt.jquery.min.js"></script>
+        <!-- Form Validator JS FILES -->
+        <script src="vendor/assets/js/form-validator.min.js"></script>
+        <!-- Contact Form JS -->
+        <script src="vendor/assets/js/contact-form-script.js"></script>
+        <!-- Script JS -->
+        <script src="vendor/assets/js/script.js"></script>

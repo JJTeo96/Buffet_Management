@@ -3548,7 +3548,7 @@ a.back-button:hover {
 /* ==============
     Scrolltop CSS
 ==================================== */
-#toTop{
+/* #toTop{
 	position: fixed;
 	bottom: 20px;
 	right: 0px;
@@ -3573,7 +3573,7 @@ a.back-button:hover {
 #toTop i:hover {
     background-color: #000;
     color: #fff;
-}
+} */
 /* ==============
     End Scrolltop CSS
 ==================================== */
