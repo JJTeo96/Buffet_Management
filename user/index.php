@@ -1,52 +1,15 @@
 <?php include_once('header.php');?>
-    <style>
-    .carousel-inner{
-      width:100%;
-      max-height: 500px !important;
-    }
 
-    </style>
-    
-    <main role="main">
-      <!-- carousel -->
-    <div class="bd-example">
-    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-      <!-- <li data-target="#carouselExampleCaptions" data-slide-to="2"></li> -->
-    </ol>
-    <div class="carousel-inner">
-      <div class="carousel-item active">
-        <img src="vendor/img/buffet 6.jpg" class="d-block w-100" alt="..." style="width:100%; height: 500px;">
-        <!-- <div class="carousel-caption d-none d-md-block">
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </div> -->
-      </div>
-      <div class="carousel-item">
-        <img src="vendor/img/buffet 7.jpg" class="d-block w-100" alt="..." style="width:100%; height: 500px;">
-        <!-- <div class="carousel-caption d-none d-md-block">
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </div> -->
-      </div>
-
-    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
+<!-- Hero Image -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px">GREAT FOOD THAT REBUILDS LIVES</h1>
+    <p>FOR YOUR TUMMY & YOUR HEART</p>
+    <button>VIEW MENU</button>
   </div>
 </div>
- <!-- carousel -->
- 
-      <!-- Marketing messaging and featurettes
-      ================================================== -->
-      <!-- Wrap the rest of the page in another container to center all the content. -->
+<!-- End Hero Image -->
+
 
       <div class="container marketing" style="margin-top:5%">
         <!-- Three columns of text below the carousel -->

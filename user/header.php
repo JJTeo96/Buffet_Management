@@ -28,63 +28,35 @@
     <meta name="author" content="">
     <!-- <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico"> -->
 
-    <title>Buffet Catering</title>
-
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <!-- Bootstrap Min CSS -->
+    <link rel="stylesheet" href="vendor/assets/css/bootstrap.min.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="vendor/assets/css/animate.min.css">
+    <!-- IcoFont CSS -->
+    <link rel="stylesheet" href="vendor/assets/icofont/icofont.min.css">
+    <link rel="stylesheet" href="vendor/assets/icofont.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="vendor/assets/css/owl.carousel.min.css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="vendor/assets/css/magnific-popup.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="vendor/assets/css/main.css">
     <!-- Custom CSS -->
     <link href="vendor/custom/css/buttons.css" rel="stylesheet">
     <link href="vendor/custom/css/style.css" rel="stylesheet">
-
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="vendor/assets/css/responsive.css">
     <!-- Font Awesome JS -->
     <script defer src="vendor/fontawesome/js/solid.js" ></script>
     <script defer src="vendor/fontawesome/js/fontawesome.js"></script>
     <link rel="stylesheet" href="vendor/fontawesome/css/fontawesome.min.css">
-
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="vendor/assets/img/chef_icon.png">
+    <!-- Page title -->
+    <title>Buffet Catering</title> 
   </head>
-
- 
-
-     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="../../assets/js/vendor/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-
-    <!-- ---------------------------------------- -->
-
-
-    <!-- ---------------------------------------- -->
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap Min CSS -->
-  <link rel="stylesheet" href="vendor/assets/css/bootstrap.min.css">
-  <!-- Animate CSS -->
-  <link rel="stylesheet" href="vendor/assets/css/animate.min.css">
-  <!-- IcoFont CSS -->
-  <link rel="stylesheet" href="vendor/assets/icofont/icofont.min.css">
-  <link rel="stylesheet" href="vendor/assets/icofont.css">
-  <!-- Owl Carousel CSS -->
-  <link rel="stylesheet" href="vendor/assets/css/owl.carousel.min.css">
-  <!-- Magnific Popup CSS -->
-  <link rel="stylesheet" href="vendor/assets/css/magnific-popup.css">
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="vendor/assets/css/main.css">
-  <!-- Responsive CSS -->
-  <link rel="stylesheet" href="vendor/assets/css/responsive.css">
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="vendor/assets/img/chef_icon.png">
-  <!-- Page title -->
-  <title>Buffet Catering</title>    
-</head>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light edu-navbar header-sticky">
@@ -202,3 +174,13 @@
         <script src="vendor/assets/js/contact-form-script.js"></script>
         <!-- Script JS -->
         <script src="vendor/assets/js/script.js"></script>
+    
+        <!-- Bootstrap core JavaScript-->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" 
+        crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+        <script src="../../assets/js/vendor/popper.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+        <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+        <script src="../../assets/js/vendor/holder.min.js"></script>
