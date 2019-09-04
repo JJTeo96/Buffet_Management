@@ -78,7 +78,7 @@
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="package.php">
+                    <a class="nav-link" href="menu.php">
                         Menus
                     </a>
                 </li>
