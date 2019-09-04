@@ -3,8 +3,8 @@
 <!-- Hero Image -->
 <div class="hero-image">
   <div class="hero-text">
-    <h1 style="font-size:50px">GREAT FOOD THAT REBUILDS LIVES</h1>
-    <p>FOR YOUR TUMMY & YOUR HEART</p>
+    <h1 style="font-size:50px;color:white"><b>GREAT FOOD THAT REBUILDS LIVES</b></h1>
+    <p style="color:white">FOR YOUR TUMMY & YOUR HEART</p>
     <button>VIEW MENU</button>
   </div>
 </div>
