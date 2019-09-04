@@ -44,8 +44,8 @@
     <!-- Main CSS -->
     <link rel="stylesheet" href="vendor/assets/css/main.css">
     <!-- Custom CSS -->
-    <link href="vendor/custom/css/buttons.css" rel="stylesheet">
-    <link href="vendor/custom/css/style.css" rel="stylesheet">
+    <link href="vendor/assets/css/buttons.css" rel="stylesheet">
+    <link href="vendor/assets/css/style.css" rel="stylesheet">
     <!-- Responsive CSS -->
     <link rel="stylesheet" href="vendor/assets/css/responsive.css">
     <!-- Font Awesome JS -->
