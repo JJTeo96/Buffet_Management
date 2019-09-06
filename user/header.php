@@ -1,6 +1,6 @@
 <?php
 // Initialize the session
-//session_start();
+session_start();
 
 //create an array to set page-level variables
 //$page=array();
@@ -12,7 +12,7 @@
 //     exit;
 // }
 
-//include('../config/database.php');
+include('../config/database.php');
 ?>
 
 <?php 
