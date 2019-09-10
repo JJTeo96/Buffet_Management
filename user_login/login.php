@@ -32,6 +32,16 @@
 </head>
 
 <body>
+
+<!-- Hero Image -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px;color:white"><b>Login</b></h1>
+  </div>
+</div>
+<!-- End Hero Image -->
+
+<!-- Login Form -->
     <main class="login-form cover">
         <div class="cotainer">
             <div class="row justify-content-center" style="margin-top:10%">
@@ -79,14 +89,9 @@
 
     </main>
 
-
-
-
-
-
+<!-- End Login Form -->
 
 </body>
 
 </html>
 
-<!-- ===================================================== -->
