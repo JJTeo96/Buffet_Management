@@ -151,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row justify-content-center" style="margin-top:10%"> 
             <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header">Register</div>
+                        <div class="card-header" style="text-align:center"><b>Register</b></div>
                         <div class="card-body">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <div class="form-group <?php echo (!empty($userName_err)) ? 'has-error' : ''; ?>">
