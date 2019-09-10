@@ -1,6 +1,7 @@
 <?php
 // Initialize the session
 session_start();
+error_reporting(0);
 
 //create an array to set page-level variables
 //$page=array();
@@ -110,11 +111,11 @@ include('../config/database.php');
                 
                 <li class="nav-item dropdown">
                   <?php 
-                  /*  $Drop=$_SESSION["userName"];
+                   $Drop=$_SESSION["userName"];
                     // Check if the user is logged in, if not then redirect him to login page
                     if(isset($_SESSION["userName"]) == 1){
                         echo '<li class="nav-item dropdown" style="margin-right:20px">';
-                        echo '<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">User '.$Drop.'</a>';
+                        echo '<a class="nav-link dropdown-toggle" href="" id="dropdown05" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Welcome '.$Drop.'</a>';
                         // echo $_SESSION["userName"];'</a>';
                         echo '<div class="dropdown-menu" aria-labelledby="dropdown05">';
                         echo '<a class="dropdown-item" href="profile.php">Profile</a>';
@@ -123,18 +124,16 @@ include('../config/database.php');
                     }else{
                         echo '';
                     }
-                  */
                   ?>
                     
                   <?php 
                     // Check if the user is logged in, if not then redirect him to login page
                     if(isset($_SESSION["userName"]) == 1){
                         echo '<li id="order-button" class="no-bullets">';
-                        echo '<a href="../user_login/logout.php">';
-                        echo '<div class="button-small button-3d button-caution button-pill">';
+                        echo '<a href="../user_login/logout.php" class="button button-3d button-caution button-rounded nav-color nav-button-size">';
                         echo 'Logout ';
                         echo '<i class="fas fa-sign-out-alt">';
-                        echo '</i></div></a>';
+                        echo '</i></a>';
                     }else{
                         echo '<li class="nav-item  dropdown">';
                         echo '<a href="../user_login/login.php" class="button button-3d button-highlight button-rounded nav-color nav-button-size">';
