@@ -20,14 +20,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Check if username is empty
     if(empty(trim($_POST["userName"]))){
-        $username_err = "<b><p style='color:red;'>Please enter username.</style></b>";
+        $username_err = "<p style='color:red;'>Please enter username.</style></p>";
     } else{
         $userName = trim($_POST["userName"]);
     }
     
     // Check if password is empty
     if(empty(trim($_POST["userPassword"]))){
-        $password_err = "<b><p style='color:red;'>Please enter your password.</style></b>";
+        $password_err = "<p style='color:red;'>Please enter your password.</style></p>";
     } else{
         $userPassword = trim($_POST["userPassword"]);
     }
@@ -68,12 +68,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             exit;
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = "<b><p style='color:red;'>The password you entered was not valid.</style></b>";
+                            $password_err = "<p style='color:red;'>The password you entered was not valid.</style></p>";
                         }
                     }
                 } else{
                     // Display an error message if username doesn't exist
-                    $username_err = "<b><p style='color:red;'>No account found with that username.</style></b>";
+                    $username_err = "<p style='color:red;'>No account found with that username.</style></p>";
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
