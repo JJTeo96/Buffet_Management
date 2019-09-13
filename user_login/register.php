@@ -140,12 +140,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- <link rel="icon" href="Favicon.png"> -->
+    
+    <!-- Main Css -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 </head>
 <body>
-
+<!-- Hero Image -->
+<div class="hero-image">
+  <div class="hero-text">
+    <h1 style="font-size:50px;color:white"><b>Register</b></h1>
+  </div>
+</div>
+<!-- End Hero Image -->
 <main class="my-form">
     <div class="cotainer">
         <div class="row justify-content-center" style="margin-top:10%"> 

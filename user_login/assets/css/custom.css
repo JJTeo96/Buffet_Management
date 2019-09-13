@@ -24,7 +24,7 @@ body, html {
   }
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(102, 100, 100, 0.5)), url("../img/login_pic.png");
-    height: 80%;
+    height: 70%;
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
