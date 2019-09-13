@@ -11,7 +11,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
  
     // Validate username
     if(empty(trim($_POST["userName"]))){
-        $userName_err = "Please enter a username.";
+        $userName_err = "<p style='color:red;'>Please enter a username.</p>";
     } else{
         // Prepare a select statement
         $sql = "SELECT userID FROM user WHERE userName = ?";
@@ -29,7 +29,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 
                 if(mysqli_stmt_num_rows($stmt) == 1){
-                    $userName_err = "This username is already taken.";
+                    $userName_err = "<p style='color:red;'>This username is already taken.</p>";
                 } else{
                     $userName = trim($_POST["userName"]);
                 }
@@ -44,45 +44,45 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     
     // Validate password
     if(empty(trim($_POST["userPassword"]))){
-        $userPassword_err = "Please enter a password.";     
+        $userPassword_err = "<p style='color:red;'>Please enter a password.</p>";     
     } elseif(strlen(trim($_POST["userPassword"])) < 6){
-        $userPassword_err = "Password must have atleast 6 characters.";
+        $userPassword_err = "<p style='color:red;'>Password must have atleast 6 characters.</p>";
     } else{
         $userPassword = trim($_POST["userPassword"]);
     }
     
     // Validate confirm password
     if(empty(trim($_POST["confirm_password"]))){
-        $confirm_password_err = "Please confirm password.";     
+        $confirm_password_err = "<p style='color:red;'>Please confirm password.</p>";     
     } else{
         $confirm_password = trim($_POST["confirm_password"]);
         if(empty($userPassword_err) && ($userPassword != $confirm_password)){
-            $confirm_password_err = "Password did not match.";
+            $confirm_password_err = "<p style='color:red;'>Password did not match.</p>";
         }
     }
 
     // Validate IC
     if(empty(trim($_POST["userIC"]))){
-        $userIC_err = "Please enter a IC.";     
+        $userIC_err = "<p style='color:red;'>Please enter a IC.</p>";     
     }else{
         $userIC = trim($_POST["userIC"]);
     }
     
      // Validate Email
     if(empty(trim($_POST["userEmail"]))){
-        $userEmail_err = "Please enter a email.";     
+        $userEmail_err = "<p style='color:red;'>Please enter a email.</p>";     
     }else{
         $userEmail = trim($_POST["userEmail"]);
     }
      // Validate Address
     if(empty(trim($_POST["userAddress"]))){
-        $userAddress_err = "Please enter a address.";     
+        $userAddress_err = "<p style='color:red;'>Please enter a address.</p>";     
     }else{
         $userAddress = trim($_POST["userAddress"]);
     }
      // Validate Contact 1
     if(empty(trim($_POST["userContact1"]))){
-        $userContact1_err = "Please enter a Contact.";     
+        $userContact1_err = "<p style='color:red;'>Please enter a Contact.</p>";     
     }else{
         $userContact1 = trim($_POST["userContact1"]);
     }
@@ -161,42 +161,42 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <div class="row justify-content-center" style="margin-top:10%"> 
             <div class="col-md-8">
                     <div class="card">
-                        <div class="card-header" style="text-align:center"><b>Register</b></div>
+                        <div class="card-header" style="text-align:center"><b>User Register</b></div>
                         <div class="card-body">
                         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                             <div class="form-group <?php echo (!empty($userName_err)) ? 'has-error' : ''; ?>">
                                 <label>Username</label>
-                                <input type="text" name="userName" class="form-control" value="<?php echo $userName; ?>">
+                                <input type="text" name="userName" class="form-control" value="<?php echo $userName; ?>" required>
                                 <span class="help-block"><?php echo $userName_err; ?></span>
                             </div>    
                             <div class="form-group <?php echo (!empty($userPassword_err)) ? 'has-error' : ''; ?>">
                                 <label>Password</label>
-                                <input type="password" name="userPassword" class="form-control" value="<?php echo $userPassword; ?>">
+                                <input type="password" name="userPassword" class="form-control" value="<?php echo $userPassword; ?>" required>
                                 <span class="help-block"><?php echo $userPassword_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
                                 <label>Confirm Password</label>
-                                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>">
+                                <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>"required>
                                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($userIC_err)) ? 'has-error' : ''; ?>">
                                 <label>I/C</label>
-                                <input type="test" name="userIC" class="form-control" value="<?php echo $userIC; ?>">
+                                <input type="test" name="userIC" class="form-control" value="<?php echo $userIC; ?>" required>
                                 <span class="help-block"><?php echo $userIC_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($userEmail_err)) ? 'has-error' : ''; ?>">
                                 <label>Email</label>
-                                <input type="test" name="userEmail" class="form-control" value="<?php echo $userEmail; ?>">
+                                <input type="test" name="userEmail" class="form-control" value="<?php echo $userEmail; ?>" required>
                                 <span class="help-block"><?php echo $userEmail_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($userAddress_err)) ? 'has-error' : ''; ?>">
                                 <label>Address</label>
-                                <input type="test" name="userAddress" class="form-control" value="<?php echo $userAddress; ?>">
+                                <input type="test" name="userAddress" class="form-control" value="<?php echo $userAddress; ?>" required>
                                 <span class="help-block"><?php echo $userAddress_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($userContact1_err)) ? 'has-error' : ''; ?>">
                                 <label>Contact 1</label>
-                                <input type="test" name="userContact1" class="form-control" value="<?php echo $userContact1; ?>">
+                                <input type="test" name="userContact1" class="form-control" value="<?php echo $userContact1; ?>" required>
                                 <span class="help-block"><?php echo $userContact1_err; ?></span>
                             </div>
                             <div class="form-group <?php echo (!empty($userContact2_err)) ? 'has-error' : ''; ?>">
