@@ -25,7 +25,7 @@
                       foreach ($result as $value){
                     
                     ?>
-		                    <form method="POST" action="action.php">
+		                    <form method="POST" action="#">
                               <div class="form-group row">
                                 <label for="username" class="col-4 col-form-label">User Name : </label> 
                                 <div class="col-8">
@@ -79,7 +79,15 @@
                                   <!-- <button name="update" type="submit" class="btn btn-primary">Save</button> -->
                                 </div>
                               </div>
-                            </form>
+
+                              <div>
+                                <!-- <button name="update" type="submit" class="btn btn-primary">Save</button> -->
+                                <a href="editProfile.php?userID=<?php echo $_SESSION['userName'];?>">
+                                  <!-- <button type="submit" class="btn btn-primary">Save</button> -->
+                                  asd
+                                </a>
+                              </div>
+                        </form>
 
                             <?php } ?>
 
