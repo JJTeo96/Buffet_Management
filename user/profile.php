@@ -25,11 +25,11 @@ $userName=$_SESSION['userName'];
                     
 		                    <form action="update_profile.php" method="POST">
                               <div class="form-group row">
-                                <input type="hidden" name="id" value="<?php echo $row['userID'];?>">
+                                <input type="hidden" name="userID" value="<?php echo $row['userID'];?>">
                                 <label for="username" class="col-4 col-form-label">User Name : </label> 
                                 <div class="col-8">
                                   <input id="username" name="username" placeholder="Username" class="form-control here"  type="text" value="<?php echo ucwords($row['userName']);?>">
-                                  <!-- <?php echo $value['userName'] ?> -->
+                                  
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -80,11 +80,7 @@ $userName=$_SESSION['userName'];
                               </div>
 
                               <div>
-                                <!-- <button name="update" type="submit" class="btn btn-primary">Save</button> -->
-                                <a href="editProfile.php?userID=<?php echo $_SESSION['userName'];?>">
-                                  <!-- <button type="submit" class="btn btn-primary">Save</button> -->
-                                  asd
-                                </a>
+                                <button name="update" type="submit" class="btn btn-primary">Save</button>
                               </div>
                         </form>
 
