@@ -1,4 +1,9 @@
-<?php include_once('header.php');?>
+<?php 
+include_once('header.php');
+$userName=$_SESSION['userName'];
+        $r = mysqli_query($db,"SELECT * FROM user WHERE userName = '$userName'");
+        while($row = mysqli_fetch_array($r)){
+?>
 
 <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -17,48 +22,42 @@
                 
 		            <div class="row">
 		                <div class="col-md-12">
-                    <?php
-                      include_once '../config/database.php';
-                      $Drop=$_SESSION["userName"];
-                      $sql= "SELECT * FROM user where userName='$Drop';";
-                      $result = $db->query($sql);
-                      foreach ($result as $value){
                     
-                    ?>
-		                    <form method="POST" action="#">
+		                    <form action="update_profile.php" method="POST">
                               <div class="form-group row">
+                                <input type="hidden" name="id" value="<?php echo $row['userID'];?>">
                                 <label for="username" class="col-4 col-form-label">User Name : </label> 
                                 <div class="col-8">
-                                  <!-- <input id="username" name="username" placeholder="Username" class="form-control here"  type="text" value="<?php echo $value['userName'] ?>"> -->
-                                  <?php echo $value['userName'] ?>
+                                  <input id="username" name="username" placeholder="Username" class="form-control here"  type="text" value="<?php echo ucwords($row['userName']);?>">
+                                  <!-- <?php echo $value['userName'] ?> -->
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label">IC : </label> 
                                 <div class="col-8">
-                                  <?php echo $value['userIC'] ?>
-                                  <!-- <input id="" name="userIC" placeholder="IC" class="form-control here" type="text" value="<?php echo $value['userIC'] ?>"> -->
+                                  <!-- <?php echo $value['userIC'] ?> -->
+                                  <input id="" name="userIC" placeholder="IC" class="form-control here" type="text" value="<?php echo $row['userIC'];?>">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="lastname" class="col-4 col-form-label">Email : </label> 
                                 <div class="col-8">
-                                  <?php echo $value['userEmail'] ?>
-                                  <!-- <input id="" name="userEmail" placeholder="Email" class="form-control here" type="email" value="<?php echo $value['userEmail'] ?>"> -->
+                                  <!-- <?php echo $value['userEmail'] ?> -->
+                                  <input id="" name="userEmail" placeholder="Email" class="form-control here" type="email" value="<?php echo $row['userEmail'] ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="text" class="col-4 col-form-label">Address : </label> 
                                 <div class="col-8">
-                                  <?php echo $value['userAddress'] ?>
-                                  <!-- <textarea id="" name="userAddress" placeholder="Address" class="form-control here"  type="text"><?php echo $value['userAddress'] ?></textarea> -->
+                                  <!-- <?php echo $value['userAddress'] ?> -->
+                                  <textarea id="" name="userAddress" placeholder="Address" class="form-control here"  type="text"><?php echo $row['userAddress'] ?></textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="email" class="col-4 col-form-label">Contact 1 : </label> 
                                 <div class="col-8">
-                                  <?php echo $value['userContact1'] ?>
-                                  <!-- <input id="" name="userContact1" placeholder="Contact 1" class="form-control here"  type="text" value="<?php echo $value['userContact1'] ?>"> -->
+                                  <!-- <?php echo $value['userContact1'] ?> -->
+                                  <input id="" name="userContact1" placeholder="Contact 1" class="form-control here"  type="text" value="<?php echo $row['userContact1'] ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
