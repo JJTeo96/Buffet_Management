@@ -36,8 +36,8 @@ include('../config/database.php');
     <!-- Animate CSS -->
     <link rel="stylesheet" href="vendor/assets/css/animate.min.css">
     <!-- IcoFont CSS -->
-    <link rel="stylesheet" href="vendor/assets/icofont/icofont.min.css">
-    <link rel="stylesheet" href="vendor/assets/icofont.css">
+    <!-- <link rel="stylesheet" href="vendor/assets/icofont/icofont.min.css">
+    <link rel="stylesheet" href="vendor/assets/icofont.css"> -->
     <!-- Owl Carousel CSS -->
     <link rel="stylesheet" href="vendor/assets/css/owl.carousel.min.css">
     <!-- Magnific Popup CSS -->

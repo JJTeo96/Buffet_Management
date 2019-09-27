@@ -35,42 +35,42 @@ $userName=$_SESSION['userName'];
                               <div class="form-group row">
                                 <label for="name" class="col-4 col-form-label">IC : </label> 
                                 <div class="col-8">
-                                  <!-- <?php echo $value['userIC'] ?> -->
+                                 
                                   <input id="" name="userIC" placeholder="IC" class="form-control here" type="text" value="<?php echo $row['userIC'];?>">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="lastname" class="col-4 col-form-label">Email : </label> 
                                 <div class="col-8">
-                                  <!-- <?php echo $value['userEmail'] ?> -->
                                   <input id="" name="userEmail" placeholder="Email" class="form-control here" type="email" value="<?php echo $row['userEmail'] ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="text" class="col-4 col-form-label">Address : </label> 
                                 <div class="col-8">
-                                  <!-- <?php echo $value['userAddress'] ?> -->
                                   <textarea id="" name="userAddress" placeholder="Address" class="form-control here"  type="text"><?php echo $row['userAddress'] ?></textarea>
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="email" class="col-4 col-form-label">Contact 1 : </label> 
                                 <div class="col-8">
-                                  <!-- <?php echo $value['userContact1'] ?> -->
                                   <input id="" name="userContact1" placeholder="Contact 1" class="form-control here"  type="text" value="<?php echo $row['userContact1'] ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="website" class="col-4 col-form-label">Contact 2 : </label> 
                                 <div class="col-8">
-                                  <?php 
+
+                                <!-- If / Else-->
+                                  <!-- <?php 
                                      if(isset($_SESSION["userContact2"]) == NULL){
                                       echo '-';
                                   }else{
                                     echo $value['userContact2'];
                                   }
-                                  ?>
-                                  <!-- <input id="" name="userContact2" placeholder="Contact 2" class="form-control here" type="text" value="<?php echo $value['userContact2'] ?>"> -->
+                                  ?> -->
+
+                                  <input id="" name="userContact2" placeholder="Contact 2" class="form-control here" type="text" value="<?php echo $row['userContact2'] ?>">
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -80,7 +80,7 @@ $userName=$_SESSION['userName'];
                               </div>
 
                               <div>
-                                <button name="update" type="submit" class="btn btn-primary">Save</button>
+                                <button name="update" type="submit" class="btn btn-primary">Update</button>
                               </div>
                         </form>
 
