@@ -8,7 +8,26 @@
 
 <div class="container" style="margin-top:3%">
 <div class="row" style="margin: 0 auto">
+
+<?php 
+    $r = mysqli_query($db,"SELECT * FROM package ");
+    while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)):
+?>
+
 <div class="col-sm-4">
+    <div class="card" style="width: 20rem;">
+    <img src="vendor/img/cardpic.png" class="card-img-top" alt="...">
+    <div class="card-body">
+        <h5 class="card-title"><?php echo $row["package_name"] ?></h5>
+        <p class="card-text"><?php echo $row["package_courses"] ?> Courses | min <?php echo $row["min_pax"] ?> Pax</p>
+        <p class="card-text">RM <?php echo $row["price"] ?> <sup>/PAX</sup></p>
+        <a href="#" class="btn btn-primary">View Details</a>
+    </div>
+    </div>
+</div>
+<?php endwhile; ?>
+
+<!-- <div class="col-sm-4">
     <div class="card" style="width: 20rem;">
     <img src="vendor/img/cardpic.png" class="card-img-top" alt="...">
     <div class="card-body">
@@ -18,9 +37,9 @@
         <a href="#" class="btn btn-primary">View Details</a>
     </div>
     </div>
-</div>
+</div> -->
 
-<div class="col-sm-4">
+<!-- <div class="col-sm-4">
     <div class="card" style="width: 20rem;">
     <img src="vendor/img/cardpic.png" class="card-img-top" alt="...">
     <div class="card-body">
@@ -42,7 +61,7 @@
         <a href="#" class="btn btn-primary">View Details</a>
     </div>
     </div>
-</div>    
+</div>     -->
     
 </div> <!--Close row-->
 </div><!--Close container-->

@@ -69,11 +69,11 @@ include('../config/database.php');
                 </li>
 
                 <li>
-                    <a href="../rental_management/index.php">Furniture Management</a>
+                    <a href="../admin/rental_management/index.php">Furniture Management</a>
                 </li>
 
                 <li>
-                    <a href="../package_management/index.php">Package Management</a>
+                    <a href="../admin/package_management/index.php">Package Management</a>
                 </li>
 
                 <li>
