@@ -14,9 +14,10 @@
     while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)):
 ?>
 
-<div class="col-sm-4">
+<div class="col-sm-4" style="margin-bottom:3%">
     <div class="card" style="width: 20rem;">
-    <img src="vendor/img/cardpic.png" class="card-img-top" alt="...">
+    <?php echo '<img src="vendor/assets/img/Package/'.$row["package_img"].'"/>'; ?>
+    <!-- <img src="vendor/img/cardpic.png" class="card-img-top" alt="..."> -->
     <div class="card-body">
         <h5 class="card-title"><?php echo $row["package_name"] ?></h5>
         <p class="card-text"><?php echo $row["package_courses"] ?> Courses | min <?php echo $row["min_pax"] ?> Pax</p>

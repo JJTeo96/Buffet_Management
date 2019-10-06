@@ -79,7 +79,7 @@ include('../config/database.php');
                 </li>
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="menu.php">
+                    <a class="nav-link" href="package.php">
                         Menus
                     </a>
                 </li>
