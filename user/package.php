@@ -22,7 +22,7 @@
         <h5 class="card-title"><?php echo $row["package_name"] ?></h5>
         <p class="card-text"><?php echo $row["package_courses"] ?> Courses | min <?php echo $row["min_pax"] ?> Pax</p>
         <p class="card-text">RM <?php echo $row["price"] ?> <sup>/PAX</sup></p>
-        <a href="#" class="btn btn-primary">View Details</a>
+        <a href="<?php echo $row["URL"] ?>" class="btn btn-primary">View Details</a>
     </div>
     </div>
 </div>
