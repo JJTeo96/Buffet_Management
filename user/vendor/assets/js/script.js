@@ -393,3 +393,42 @@
         });
     }); 	
 })(jQuery);
+
+/* Number per pax calculation */
+$( document ).ready(function(){
+    updatePax();
+    $('#number').change(function(){
+        updatePax();  
+    });
+    
+});
+
+$( document ).ready(function(){
+    updatePrice();
+    $('#number').change(function(){
+        updatePrice();  
+    });
+    
+});
+
+function updatePax() 
+{
+  var pax = $("#number").val() * 1;
+  $("#pax").html( pax);
+}
+
+
+function updatePrice() 
+{
+  var price = $("#number").val() * 30;
+  $("#price").html('RM'+price);
+}
+
+function onlyOne(checkbox) {
+    var checkboxes = document.getElementsByName('check')
+    checkboxes.forEach((item) => {
+        if (item !== checkbox) item.checked = false
+    })
+}
+
+/* End Number pax calculation  */
