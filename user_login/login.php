@@ -34,11 +34,11 @@
 <body>
 
 <!-- Hero Image -->
-<div class="hero-image">
+<!-- <div class="hero-image">
   <div class="hero-text">
     <h1 style="font-size:50px;color:white"><b>Login</b></h1>
   </div>
-</div>
+</div> -->
 <!-- End Hero Image -->
 
 <!-- Login Form -->

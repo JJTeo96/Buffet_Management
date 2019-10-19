@@ -12,6 +12,7 @@
 <?php 
     $r = mysqli_query($db,"SELECT * FROM package ");
     while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)):
+        $id=$row['package_id'];
 ?>
 
 <div class="col-sm-4" style="margin-bottom:3%">
@@ -22,7 +23,7 @@
         <h5 class="card-title"><?php echo $row["package_name"] ?></h5>
         <p class="card-text"><?php echo $row["package_courses"] ?> Courses | min <?php echo $row["min_pax"] ?> Pax</p>
         <p class="card-text">RM <?php echo $row["price"] ?> <sup>/PAX</sup></p>
-        <a href="<?php echo $row["URL"] ?>" class="btn btn-primary">View Details</a>
+        <a href="packageCate.php?id=<?php echo $id;?>" class="btn btn-primary">View Details</a>
     </div>
     </div>
 </div>
