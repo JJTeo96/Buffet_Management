@@ -1,5 +1,6 @@
 <?php include('header.php'); ?>
 
+<!-- Submit orders -->
 <?php if(isset($_POST['submitt'])){
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         echo "<script>alert('You must Login!');</script>";
@@ -14,7 +15,7 @@
         
             if($query){
                 echo "<script>alert('Success !');</script>";
-                echo "<script>window.location.assign('combine-table.php');</script>";
+                echo "<script>window.location.assign('packageAddon.php');</script>";
             }else {
                 echo "<script>alert('Fail !');</script>";
                 echo "<script>window.location.assign('combine-table.php');</script>";
@@ -23,6 +24,7 @@
     }
 }
 ?>
+<!-- End Submit order -->
 
 <!-- Font Awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -31,8 +33,7 @@
 <link href="vendor/assets/MDB/css/style.css" rel="stylesheet">
 <!-- Gridlex -->
 <link rel="stylesheet" href="vendor/assets/gridlex/gridlex.min.css">
-
-<link href="vendor/assets/js/script.js" rel="stylesheet">
+<!-- <link href="vendor/assets/js/script.js" rel="stylesheet"> -->
 
 <?php 
     $packageID=$_GET['id'];
@@ -43,7 +44,7 @@
     while($row = mysqli_fetch_array($sql)){
 ?>
 
-<form method="post" action="packageCate.php">
+<form method="post" action="packageCate.php" name="myform">
 
 <div class="grid" style="margin-top:5%">
     <div class="col-3_md-12_md-first" data-push-left="off-1" >
@@ -55,13 +56,13 @@
                 <img src="vendor/assets/img/Package/<?php echo $row['package_img'];?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $row['package_name'];?></h5>
-                        <p class="card-text">RM <?php echo $row['price'];?> / PAX</p>
+                        <p class="card-text" id="pricepax">RM <?php echo $row['price'];?> / PAX</p>
                         <a href="package.php" class="btn btn-danger">CHANGE SELECTION</a>
                     </div>
                 </div>
             </div>
             <!-- End Left side card -->
-
+                  
             <!-- Left side card -->
             <div class="col-2">
                 <div class="card" style="width: 18rem;">
@@ -70,26 +71,23 @@
                         <p class="card-text" style="text-align:center;">
                             (Minimum <?php echo $row['min_pax'];?> Pax) | <?php echo $row['package_courses'];?> courses
                         </p>
-                        <!-- Number -->
+                        <!-- Number  per pax -->
                         <div class="form-group">
+                        <!-- <input type="text" id="price3" value="<?php echo $row['price'];?>" size="3" hidden> -->
                             <!-- <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                             <input class="quantity" min="<?php echo $row['min_pax'];?>" name="quantity" value="<?php echo $row['min_pax'];?>" type="number">
                             <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button> -->
+                            <h5 style="color:Red">Number of Pax Selected</h5>
                             <div class="form-group row">
                                 <div class="col-10">
                                     <input class="form-control" type="number" min="<?php echo $row['min_pax'];?>" 
-                                    value="<?php echo $row['min_pax'];?>" id="number">
+                                    value="<?php echo $row['min_pax'];?>" id="numpax">
                                 </div>
                             </div>
                         </div>
-                        <!-- End number -->
-
-                        <!-- Number per pax -->
-                        <h5 style="color:Red">Number of Pax Selected</h5>
-                        <h3 id="pax">40</h3>
-                        <input type="hidden" id="hTotalPax" value="40">
+                        <input type="text" id="price3" value="<?php echo $row['price'];?>" size="3" hidden>
                         <h5 style="color:Red">Price</h5>
-                        <h3 id="price" name="price"></h3>
+                        <input class="form-control" name="fee" type="text" id="price2" value="" readonly >
                         <!-- End number per pax -->
                     </div>
                 </div>
@@ -98,6 +96,18 @@
         </div>
     </div>
     
+    <!-- Calculation Script -->
+    <script type="text/javascript">
+      var form = document.forms['myform'];
+
+      form.numpax.onkeyup = function(){
+        form.price2.value = form.numpax.value* form.price3.value;
+        // kidsTotal = Number(form.childfee.value);
+        updateTotal();
+      }
+    </script>
+    <!-- End Calculation Script -->
+
     <!-- Right side -->
     <div class="col grid-column">
         <div class="col grid-equalHeight">
@@ -260,17 +270,3 @@ foreach($_POST['order'] as $selected){
 // $sql = "SELECT * FROM dishes LEFT JOIN orders ON orders.disID = dishes.dishesID"
 ?> -->
    
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
