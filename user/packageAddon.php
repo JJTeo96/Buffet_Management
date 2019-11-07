@@ -8,6 +8,13 @@
     $invid=$_GET['invoice'];
 } ?>
 
+<style>
+.form-control-inline {
+    min-width: 0;
+    width: 90px;
+    display: inline;
+}
+</style>
 <!-- Container -->
 <div class="container" style="margin-top:3%">
   <div class="row">
@@ -82,117 +89,157 @@
                 <div class="card-header ">
                     Optional Equipment Rental List for Buffet Packages
                 </div>
-                <div class="card-body"> 
-                <div class="form-group" style="clear: both;"> 
+                <div class="card-body">
+
+                <!-- Php Rental -->
+                <?php 
+                    $r = mysqli_query($db,"SELECT * FROM rental_details ");
+                    while($rowr = mysqli_fetch_array($r, MYSQLI_ASSOC)):
+                ?>
+
+                <div class="form-group"> 
                     <div class="checkbox"> 
                         <label class="col-md-8">
-                            <input type="checkbox" value="30" name="Full set of Porcelain Wares and Glasswares" 
-                            ng-change="change()" ng-model="addon1" class="ng-pristine ng-untouched ng-valid ng-empty"> 
-                                Full set of Porcelain Wares and Glasswares (includes Stainless Steel Cutleries) 
-                        </label> 
-                        <span class="col-md-4">S$5+ / per pax</span> 
+                            <!-- <input type="checkbox" value="" name="Full set of Porcelain Wares and Glasswares">  -->
+                            ◾ <?php echo $rowr['furniture_name']; ?>  
+                        </label>
+                        <input type="number" class="form-control form-control-inline" 
+                        placeholder="Qty" name="Plastic Stools" min="1" max="30"> 
+                        <span class="col-md-4">/ RM<?php echo $rowr['rental_price']; ?></span> 
                     </div> 
                 </div>
-
-                <div class="form-group" style="clear: both;"> 
-                    <div class="checkbox"> 
-                        <label class="col-md-6">
-                            <input type="checkbox" value="" ng-model="need_stools" 
-                            ng-change="change()" class="ng-pristine ng-untouched ng-valid ng-empty">
-                            Plastic Stools (Max. 30 pieces)
-                        </label> <span class="col-md-2">
-                            <input type="text" class="form-control ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required" 
-                            placeholder="qty" name="Plastic Stools" min="1" max="30" ng-disabled="!need_stools" 
-                            ng-change="change()" ng-model="addon3" required="" disabled="disabled">
-                            </span> <span class="col-md-4">S$1+ / each</span> </div> </div>
-                            
-                            <!-- Php rental -->
-                            <?php 
-                                $r = mysqli_query($db,"SELECT * FROM rental_details ");
-                                while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)):
-                                    // $id=$row['package_id'];
-                            ?>
-                                <!--Checkbox -->
-                                <!-- <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="<?php echo $row['furniture_name']; ?>" 
-                                    value="<?php echo $row['furniture_name']; ?>" name="Rental">
-                                    <label class="custom-control-label" for="<?php echo $row['furniture_name']; ?>"><?php echo $row['furniture_name']; ?></label>
-                                </div> -->
-                                <!-- End checkbox -->
-                                
-                                <div class="form-group">
-                                    <label for="<?php echo $row['furniture_name']; ?>"><?php echo $row['furniture_name']; ?>
-                                    <i class="fas fa-arrow-circle-down"></i></label>
-                                    <input type="text" class="form-control" value="<?php echo $row['rental_id']; ?>"  name="rental_id" hidden >
-                                    <input type="number" class="form-control" id="<?php echo $row['rental_id']; ?>" name="quantity" >
-                                </div>
-                                <?php endwhile; ?>
-                            <!-- End Php rental -->
-                            </div>
-                        </div>
-                    <!-- End Card -->           
+                <?php endwhile; ?>
+                <!-- End Php rental -->
+               
                 </div>
             </div>
+            <!-- End Card -->           
+        </div>
+    </div>
     <!-- end rental -->
     
-    </div>
-    <div class="col-md-3"></div>
-  </div>
-  <!-- <div class="row">
-    <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
-    <div class="col-md-3 offset-md-3">.col-md-3 .offset-md-3</div>
-  </div>
-  <div class="row">
-    <div class="col-md-6 offset-md-3">.col-md-6 .offset-md-3</div>
-  </div>
-</div> -->
-<!-- End Container -->
+    <!-- Right table -->
+    <div class="col-12" style="margin-top:3%">
+        <div class="demo demo-left">
+            <!-- Card -->
+            <div class="card">
+                <div class="card-header ">
+                    Delivery Details
+                </div>
+                <!-- Card Body -->
+                <div class="card-body">
+                    <?php 
+                    $userName=$_SESSION['userName'];
+                            $userr = mysqli_query($db,"SELECT * FROM user WHERE userName = '$userName'");
+                            while($rowu = mysqli_fetch_array($userr)){
+                    ?>
 
-<div class="col-10" style="margin-top:5%">
-                <div class="demo demo-left">
-                    <div class="card text-center">
-                        <div class="card-body ">
-                            <h3>Rental Services</h3>
+                    <!-- Personal Infor -->
+                    <i><h6 class="card-title">Personal Information</h6></i>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Name:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $_SESSION['userName'] ?>">
                         </div>
                     </div>
-                </div>
-            </div>
-            
-            <div class="col-10">
-                <div class="demo demo-left">
-                    <!-- Card -->
-                    <div class="card">
-                            <div class="card-header ">
-                                Rental Item
+                    <!-- End personal Infor -->
+
+                    <!-- Contact Infor -->
+                    <i><h6 class="card-title">Contact Information</h6></i>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Email Address:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowu['userEmail'] ?>">
+                        </div>
+                        
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Contact 1:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowu['userContact1'] ?>">
+                        </div>
+
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Contact 2:</label>
+                        <div class="col-sm-8">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowu['userContact2'] ?>">
+                        </div>
+                    </div>
+                    <!-- End Contact Infor -->
+
+                    <!-- Delivery Address  -->
+                    <i><h6 class="card-title">Delivery address</h6></i>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Address:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="staticEmail" value="<?php echo $rowu['userAddress'] ?>">
+                        </div>
+                    </div>
+                    <!-- End Delivery Address -->
+                    <?php } ?>
+
+                    <!-- Delivery Infor  -->
+                    <i><h6 class="card-title">Delivery Information</h6></i>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Lift Access:</label>
+                        <div class="col-sm-8">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="isNews" value="yes">
+                                <label class="form-check-label" for="inlineRadio1">Yes</label>
                             </div>
-                            <div class="card-body"> 
-                            
-                            <!-- Php rental -->
-                            <?php 
-                                $r = mysqli_query($db,"SELECT * FROM rental_details ");
-                                while($row = mysqli_fetch_array($r, MYSQLI_ASSOC)):
-                                    // $id=$row['package_id'];
-                            ?>
-                                <!--Checkbox -->
-                                <!-- <div class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="<?php echo $row['furniture_name']; ?>" 
-                                    value="<?php echo $row['furniture_name']; ?>" name="Rental">
-                                    <label class="custom-control-label" for="<?php echo $row['furniture_name']; ?>"><?php echo $row['furniture_name']; ?></label>
-                                </div> -->
-                                <!-- End checkbox -->
-                                
-                                <div class="form-group">
-                                    <label for="<?php echo $row['furniture_name']; ?>"><?php echo $row['furniture_name']; ?>
-                                    <i class="fas fa-arrow-circle-down"></i></label>
-                                    <input type="text" class="form-control" value="<?php echo $row['rental_id']; ?>"  name="rental_id" hidden >
-                                    <input type="number" class="form-control" id="<?php echo $row['rental_id']; ?>" name="quantity" >
-                                </div>
-                                <?php endwhile; ?>
-                            <!-- End Php rental -->
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" 
+                                value="no" checked>
+                                <label class="form-check-label" for="inlineRadio2">No</label>
+                            </div>
+                            </div>
+
+                            <label for="staticEmail" class="col-sm-3 col-form-label">Level:</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control form-control-inline" 
+                                placeholder="Lvl" name="Plastic Stools" min="1" id="newsSource" disabled=""> 
+                            </div>
+
+                            <label for="staticEmail" class="col-sm-3 col-form-label">Delivery Date:</label>
+                            <div class="col-sm-8">
+                            <input class="form-control" nrequired type="text" name="shootdate" id="shootdate" title="Choose your desired date"
+                            style="margin-top:1%">
+                            <small id="DateHelp" class="form-text text-muted">Only can choose before 5 Days.</small>
+                            </div>
+
+                            <label for="staticEmail" class="col-sm-3 col-form-label">Level:</label>
+                            <div class="col-sm-8">
+                                <input type="number" class="form-control form-control-inline" 
+                                placeholder="Lvl" name="Plastic Stools" min="1" id="newsSource" disabled=""> 
                             </div>
                         </div>
-                    <!-- End Card -->           
-                </div>
-            </div>
+                    </div>
+	            
+                    <!-- End Delivery Infor -->
 
-            
+
+
+                </div>
+                <!-- End Card body -->
+            </div>
+            <!-- End Card -->           
+        </div>
+    </div>
+    <!-- End right table -->
+    
+    </div>
+    <?php include_once('footer.php');?>
+    
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+    $('#isNews').change(function(){
+    $("#newsSource").prop("disabled", !$(this).is(':checked'));
+    });
+
+    $( function() {
+	   	$( "#shootdate" ).datepicker({
+	   		minDate: 5
+	   	});
+	});
+    </script>
+
+    
