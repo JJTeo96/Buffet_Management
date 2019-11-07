@@ -14,7 +14,7 @@
     }else{
         foreach($_POST['order'] as $selected){
             // echo "<script>alert('Total Price :" . $selected . "')</script>";
-            echo $selected;
+            // echo $selected;
             $orderID = "INV" . time();
             $sql = "INSERT INTO orders (disID,invoice_id) VALUES ('$selected','$orderID')";
             $query = $db->query($sql);
@@ -54,7 +54,7 @@
 <?php
 function display()
 {
-    echo "hello ";
+    // echo "hello ";
     echo "<script>window.location.assign('packageAddon.php?id=".$packageID."&invoice=".$orderID."');</script>";
 }
 if(isset($_POST['submitt']))
@@ -221,6 +221,8 @@ if(isset($_POST['submitt']))
     };
 ?>
 </form>
+
+<?php include_once('footer.php');?>
 
 <!-- Checkbox select once -->
 <!-- <script>

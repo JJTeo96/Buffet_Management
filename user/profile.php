@@ -94,3 +94,5 @@ $userName=$_SESSION['userName'];
 		</div>
 	</div>
 </div>
+
+<?php include_once('footer.php');?>

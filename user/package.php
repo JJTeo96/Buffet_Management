@@ -67,3 +67,4 @@
     
 </div> <!--Close row-->
 </div><!--Close container-->
+<?php include_once('footer.php');?>
