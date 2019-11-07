@@ -7,6 +7,9 @@
 <?php if(isset($_GET['invoice'])){
     $invid=$_GET['invoice'];
 } ?>
+<!-- Material Design Bootstrap -->
+<link href="vendor/assets/MDB/css/mdb.min.css" rel="stylesheet">
+<link href="vendor/assets/MDB/css/style.css" rel="stylesheet">
 
 <style>
 .form-control-inline {
@@ -204,17 +207,76 @@
                             <small id="DateHelp" class="form-text text-muted">Only can choose before 5 Days.</small>
                             </div>
 
-                            <label for="staticEmail" class="col-sm-3 col-form-label">Level:</label>
+                            <label for="staticEmail" class="col-sm-3 col-form-label">Delivery Time:</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control form-control-inline" 
-                                placeholder="Lvl" name="Plastic Stools" min="1" id="newsSource" disabled=""> 
-                            </div>
+                                <select class="browser-default custom-select custom-select-lg mb-3">
+                                    <optgroup label = "MORNING">
+                                        <option value="08:30AM">08:30 AM</option>
+                                        <option value="08:45AM">08:45 AM</option>
+                                        <option value="09:00AM">09:00 AM</option>
+                                        <option value="09:15AM">09:15 AM</option>
+                                        <option value="09:30AM">09:30 AM</option>
+                                        <option value="09:45AM">09:45 AM</option>
+                                        <option value="10:00AM">10:00 AM</option>
+                                        <option value="10:15AM">10:15 AM</option>
+                                        <option value="10:30AM">10:30 AM</option>
+                                        <option value="10:45AM">10:45 AM</option>
+                                        <option value="11:00AM">11:00 AM</option>
+                                        <option value="11:15AM">11:15 AM</option>
+                                        <option value="11:30AM">11:30 AM</option>
+                                        <option value="11:45AM">11:45 AM</option>
+                                    </optgroup>
+                                    <optgroup label = "AFTERNOON">
+                                        <option value="12:00PM">12:00 PM</option>
+                                        <option value="12:15PM">12:15 PM</option>
+                                        <option value="12:30PM">12:30 PM</option>
+                                        <option value="12:45PM">12:45 PM</option>
+                                        <option value="01:00PM">01:00 PM</option>
+                                        <option value="01:15PM">01:15 PM</option>
+                                        <option value="01:30PM">01:30 PM</option>
+                                        <option value="01:45PM">01:45 PM</option>
+                                        <option value="02:00PM">02:00 PM</option>
+                                        <option value="02:15PM">02:15 PM</option>
+                                        <option value="02:30PM">02:30 PM</option>
+                                        <option value="02:45PM">02:45 PM</option>
+                                        <option value="03:00PM">03:00 PM</option>
+                                        <option value="03:15PM">03:15 PM</option>
+                                        <option value="03:30PM">03:30 PM</option>
+                                        <option value="03:45PM">03:45 PM</option>
+                                        <option value="04:00PM">04:00 PM</option>
+                                        <option value="04:15PM">04:15 PM</option>
+                                        <option value="04:30PM">04:30 PM</option>
+                                        <option value="04:45PM">04:45 PM</option>
+                                    </optgroup>
+                                    <optgroup label = "EVENING">
+                                        <option value="05:00PM">05:00 PM</option>
+                                        <option value="05:15PM">05:15 PM</option>
+                                        <option value="05:30PM">05:30 PM</option>
+                                        <option value="05:45PM">05:45 PM</option>
+                                        <option value="06:00PM">06:00 PM</option>
+                                        <option value="06:15PM">06:15 PM</option>
+                                        <option value="06:30PM">06:30 PM</option>
+                                        <option value="06:45PM">06:45 PM</option>
+                                        <option value="07:00PM">07:00 PM</option>
+                                        <option value="07:15PM">07:15 PM</option>
+                                        <option value="07:30PM">07:30 PM</option>
+                                    </optgroup>
+                                </select>
+                        </div>
+                        <!-- End Delivery Infor -->
+                    </div>
+
+                    <!-- Other Infor -->
+                    <i><h6 class="card-title">Other Information</h6></i>
+                    <div class="form-group row">
+                        <label for="staticEmail" class="col-sm-3 col-form-label">Promotion Code:</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="" value="">
                         </div>
                     </div>
-	            
-                    <!-- End Delivery Infor -->
-
-
+                    <!-- End Other Infor -->
+                    
+                    </div>
 
                 </div>
                 <!-- End Card body -->
