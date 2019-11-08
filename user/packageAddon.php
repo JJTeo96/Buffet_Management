@@ -7,6 +7,43 @@
 <?php if(isset($_GET['invoice'])){
     $invid=$_GET['invoice'];
 } ?>
+
+<?php if(isset($_POST['submitt'])){
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+        echo "<script>alert('You must Login!');</script>";
+        echo "<script>window.location.assign('../user_login/login.php');</script>";
+        exit;
+    }else{
+        foreach($_POST['renFuni'] as $renID=>$selected){
+            // echo "<script>alert('Total Price :" . $selected . "')</script>";
+            // echo $selected;
+            
+            $sqlFurni = "INSERT INTO rental_furni (rental_id,quantity,invoice_id) VALUES ('$renID','$selected','$invid')";
+            $query = $db->query($sqlFurni);
+
+            if($query){
+                // echo "<script>alert('Success !');</script>";
+                // echo "<script>window.location.assign('packageAddon.php');</script>";
+                // echo "<script>window.location.assign('packageAddon.php');</script>";
+            }else {
+                echo "<script>alert('Fail !');</script>";
+                // echo "<script>window.location.assign('combine-table.php');</script>";
+            }
+        }
+
+        // $Drop=$_SESSION['userID'];
+        // $packageIDs=$_POST['package_id'];
+        // $num_pax=$_POST['tot_amount'];
+        // $priceMenu=$_POST['fee'];
+
+        // $sql5="INSERT INTO invoice(userID, packageID, invoice_id, num_pax, priceMenu)
+        // VALUES ('$Drop','$packageIDs','$orderID','$num_pax','$priceMenu')";
+        // $query5 = $db->query($sql5);
+        // echo "<script>window.location.assign('packageAddon.php?id=$packageID&invoice=$orderID');</script>";
+    }
+}
+?>
+
 <!-- Material Design Bootstrap -->
 <link href="vendor/assets/MDB/css/mdb.min.css" rel="stylesheet">
 <link href="vendor/assets/MDB/css/style.css" rel="stylesheet">
@@ -18,6 +55,8 @@
     display: inline;
 }
 </style>
+
+
 <!-- Container -->
 <div class="container" style="margin-top:3%">
   <div class="row">
@@ -27,6 +66,7 @@
       $sql = mysqli_query($db,"SELECT * FROM package WHERE package_id = $packageID");
       while($row = mysqli_fetch_array($sql)){
     ?>
+    
     <!-- card -->
     <div class="col-2">
       <div class="card" style="width: 18rem;">
@@ -73,18 +113,7 @@
     </div>
     
     <div class="col-md-8 offset-md-1">
-
-    <!-- Add On -->
-    <div class="col-10" >
-        <!-- <div class="demo demo-left">
-            <div class="card text-center">
-                <div class="card-body ">
-                    <h3>Add On</h3>
-                </div>
-            </div>
-        </div> -->
-    </div>
-            
+    <form method="post" action="packageAddon.php"> 
     <div class="col-12">
         <div class="demo demo-left">
             <!-- Card -->
@@ -106,8 +135,9 @@
                             <!-- <input type="checkbox" value="" name="Full set of Porcelain Wares and Glasswares">  -->
                             ◾ <?php echo $rowr['furniture_name']; ?>  
                         </label>
+                        <input type="text" value="<?php echo $rowr['rental_id']; ?>" name="renID[]" hidden>
                         <input type="number" class="form-control form-control-inline" 
-                        placeholder="Qty" name="Plastic Stools" min="1" max="30"> 
+                        placeholder="Qty" name="renFuni[]"> 
                         <span class="col-md-4">/ RM<?php echo $rowr['rental_price']; ?></span> 
                     </div> 
                 </div>
@@ -274,6 +304,12 @@
                             <input type="text" class="form-control" id="" value="">
                         </div>
                     </div>
+                    <div class="form-group row">
+                        <label for="" class="col-sm-3 col-form-label">Remark:</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
                     <!-- End Other Infor -->
                     
                     </div>
@@ -285,8 +321,19 @@
         </div>
     </div>
     <!-- End right table -->
+
+    <div class="col-4" style="margin-top: 3%;margin-left:55%;padding-bottom: 5%;" data-push-left="off-3" data-push-right="off-3" >
+        <div class="demo demo-left">
+            <div class="card text-center">
+                <input type="submit" class="button button-royal button-rounded button-giant" value="Next &raquo;"
+                name="submitt">
+            </div>
+        </div>
+    </div>
     
     </div>
+    </form>
+    
     <?php include_once('footer.php');?>
     
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
