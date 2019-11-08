@@ -119,6 +119,7 @@ include('../config/database.php');
                         // echo $_SESSION["userName"];'</a>';
                         echo '<div class="dropdown-menu" aria-labelledby="dropdown05">';
                         echo '<a class="dropdown-item" href="profile.php">Profile</a>';
+                        echo '<a class="dropdown-item" href="orderedRecord.php">Order History</a>';
                         // echo '<a class="dropdown-item" href="#">Another action</a>';
                         echo '</div></li>';
                     }else{
