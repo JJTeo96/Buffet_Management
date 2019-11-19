@@ -3,13 +3,11 @@
 	
 	$id=$_GET['id'];
 	
-	$furniture_name=$_POST['furniture_name'];
-	$rental_price=$_POST['rental_price'];
-	$quantity=$_POST['quantity'];
+	$dishesName=$_POST['dishesName'];
+	$courseID=$_POST['courseID'];
 
-	// $foodRemark=$_POST['foodRemark'];
-	
-	mysqli_query($conn,"update rental_details set furniture_name='$furniture_name',quantity='$quantity', rental_price='$rental_price' where rental_id='$id'");
+	$sqlFurni = "update dishes set dishesName='$dishesName',courseID='$courseID' where dishesID='$id'";
+	$query = $conn->query($sqlFurni);
 	header('location:index.php');
 	exit;
 

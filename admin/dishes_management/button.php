@@ -1,5 +1,5 @@
 <!-- Delete -->
-    <div class="modal fade" id="del<?php echo $row['rental_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="del<?php echo $row['dishesID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -8,16 +8,17 @@
                 </div>
                 <div class="modal-body">
 				<?php
-					$del=mysqli_query($conn,"select * from rental_details where rental_id='".$row['rental_id']."'");
+					$del=mysqli_query($conn,"select * from `dishes` LEFT JOIN course ON course.courseID = dishes.courseID where dishesID='".$row['dishesID']."'");
 					$drow=mysqli_fetch_array($del);
 				?>
 				<div class="container-fluid">
-					<h5>Furniture Name: <strong><?php echo $drow['furniture_name']; ?></strong></h5> 
+					<h5>Dishes Name: <strong><?php echo $drow['dishesName']; ?></strong></h5> 
+					<h5>Course Name: <strong><?php echo $drow['courseName']; ?></strong></h5> 
                 </div> 
 				</div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-                    <a href="delete.php?id=<?php echo $row['rental_id']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
+                    <a href="delete.php?id=<?php echo $row['dishesID']; ?>" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span> Delete</a>
                 </div>
 				
             </div>
@@ -26,7 +27,7 @@
 <!-- /.modal -->
 
 <!-- Edit -->
-    <div class="modal fade" id="edit<?php echo $row['rental_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="edit<?php echo $row['dishesID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -35,35 +36,40 @@
                 </div>
                 <div class="modal-body">
 				<?php
-					$edit=mysqli_query($conn,"select * from rental_details where rental_id='".$row['rental_id']."'");
+					$edit=mysqli_query($conn,"select * from `dishes` LEFT JOIN course ON course.courseID = dishes.courseID where dishesID='".$row['dishesID']."'");
 					$erow=mysqli_fetch_array($edit);
 				?>
 				<div class="container-fluid">
-				<form method="POST" action="edit.php?id=<?php echo $erow['rental_id']; ?>">
+				<form method="POST" action="edit.php?id=<?php echo $erow['dishesID']; ?>">
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Furniture Name:</label>
+							<label style="position:relative; top:7px;">Dishes Name:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" name="furniture_name" class="form-control" value="<?php echo $erow['furniture_name']; ?>">
+							<input type="text" name="dishesName" class="form-control" value="<?php echo $erow['dishesName']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Quantity:</label>
+							<label style="position:relative; top:7px;">Course Name:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" name="quantity" class="form-control" value="<?php echo $erow['quantity']; ?>">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Price:</label>
-						</div>
-						<div class="col-lg-8">
-							<input type="text" name="rental_price" class="form-control" value="<?php echo $erow['rental_price']; ?>">
+							<!-- Select -->
+							<?php 
+								include('conn.php');
+							?>					
+							<select class="form-control" id="exampleFormControlSelect1"  name="courseID">
+								<?php
+									$d = mysqli_query($db,"SELECT * FROM course ");
+									while($row = mysqli_fetch_array($d)){
+								?>
+								<option value="<?php echo $row['courseID'];?>"><?php echo $row['courseName'];?></option>
+								<?php 
+									}
+								?>
+							</select>
+							<!-- End select -->
 						</div>
 					</div>
                 </div> 
@@ -79,7 +85,7 @@
 <!-- /.modal -->
 
 <!-- View -->
-<div class="modal fade" id="view<?php echo $row['rental_id']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade" id="view<?php echo $row['dishesID']; ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -88,35 +94,40 @@
                 </div>
                 <div class="modal-body">
 				<?php
-					$edit=mysqli_query($conn,"select * from rental_details where rental_id='".$row['rental_id']."'");
+					$edit=mysqli_query($conn,"select * from `dishes` LEFT JOIN course ON course.courseID = dishes.courseID where dishesID='".$row['dishesID']."'");
 					$erow=mysqli_fetch_array($edit);
 				?>
 				<div class="container-fluid">
-				<form method="POST" action="edit.php?id=<?php echo $erow['rental_id']; ?>">
+				<form method="POST" action="edit.php?id=<?php echo $erow['dishesID']; ?>">
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Furniture Name:</label>
+							<label style="position:relative; top:7px;">Dishes Name:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" readonly  name="furniture_name" class="form-control" value="<?php echo $erow['furniture_name']; ?>">
+							<input type="text" readonly  name="dishesName" class="form-control" value="<?php echo $erow['dishesName']; ?>">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="row">
 						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Quantity:</label>
+							<label style="position:relative; top:7px;">Course Name:</label>
 						</div>
 						<div class="col-lg-8">
-							<input type="text" readonly name="quantity" class="form-control" value="<?php echo $erow['quantity']; ?>">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="row">
-						<div class="col-lg-4">
-							<label style="position:relative; top:7px;">Price:</label>
-						</div>
-						<div class="col-lg-8">
-							<input type="text" readonly  name="rental_price" class="form-control" value="<?php echo $erow['rental_price']; ?>">
+							<!-- Select -->
+							<?php 
+								include('conn.php');
+							?>					
+							<select class="form-control" id="exampleFormControlSelect1" readonly name="courseID">
+								<?php
+									$d = mysqli_query($db,"SELECT * FROM course ");
+									while($row = mysqli_fetch_array($d)){
+								?>
+								<option value="<?php echo $row['courseID'];?>"><?php echo $row['courseName'];?></option>
+								<?php 
+									}
+								?>
+							</select>
+							<!-- End select -->
 						</div>
 					</div>
                 </div> 

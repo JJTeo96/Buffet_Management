@@ -11,28 +11,35 @@
 				<form method="POST" action="addnew.php">
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Furniture Name:</label>
+							<label class="control-label" style="position:relative; top:7px;">Dishes Name:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="furniture_name">
-						</div>
-					</div>
-					<div style="height:10px;"></div>
-					<div class="form-group">
-						<div>
-							<label class="control-label" style="position:relative; top:7px;">Quantity:</label>
-						</div>
-						<div>
-							<input type="text" class="form-control" name="quantity">
+							<input type="text" class="form-control" name="dishesName">
 						</div>
 					</div>
 					<div style="height:10px;"></div>
 					<div class="form-group">
 						<div>
-							<label class="control-label" style="position:relative; top:7px;">Price:</label>
+							<label class="control-label" style="position:relative; top:7px;">Course:</label>
 						</div>
 						<div>
-							<input type="text" class="form-control" name="rental_price">
+						<!-- Select -->
+						<?php 
+							include('conn.php');
+						?>
+
+											
+						<select class="form-control" id="exampleFormControlSelect1"  name="courseID">
+							<?php
+								$d = mysqli_query($db,"SELECT * FROM course ");
+								while($row = mysqli_fetch_array($d)){
+							?>
+							<option value="<?php echo $row['courseID'];?>"><?php echo $row['courseName'];?></option>
+							<?php 
+								}
+							?>
+						</select>
+						<!-- End select -->	
 						</div>
 					</div>
                 </div> 
