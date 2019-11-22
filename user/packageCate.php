@@ -2,7 +2,7 @@
 
 <?php if(isset($_GET['id'])){
     $packageID=$_GET['id'];
-    echo $packageID;
+    // echo $packageID;
 } ?>
 
 <!-- Submit orders -->
