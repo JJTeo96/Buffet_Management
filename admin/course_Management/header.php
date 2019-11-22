@@ -66,11 +66,19 @@ include('../../config/database.php');
                 </li>
 
                 <li>
-                    <a href="index.php">Furniture Management</a>
+                    <a href="../rental_management/index.php">Furniture Management</a>
                 </li>
 
                 <li>
                     <a href="../package_management/index.php">Package Management</a>
+                </li>
+
+                <li>
+                    <a href="index.php">Course Management</a>
+                </li>
+
+                <li>
+                    <a href="../dishes_management/index.php">Dishes Management</a>
                 </li>
 
                 <li>
@@ -106,9 +114,6 @@ include('../../config/database.php');
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
-                            <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
-                            </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../../admin_login/logout.php"><i class="fas fa-sign-out-alt"></i></a>                                
                             </li>

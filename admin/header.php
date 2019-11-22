@@ -124,9 +124,6 @@ include('../config/database.php');
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="nav navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
-                            </li>
-                            <li class="nav-item">
                                 <a class="nav-link" href="../admin_login/logout.php"><i class="fas fa-sign-out-alt"></i></a>                                
                             </li>
                         </ul>
