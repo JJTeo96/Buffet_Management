@@ -19,6 +19,7 @@
         foreach($_POST['renID'] as $selected => $renID){
             $renFuni = $_POST['renFuni'][$selected];
             $invoiceID=$_POST['invoiceID'];
+            $packageIDs=$_POST['packageIDs'];
             
             $sqlFurni = "INSERT INTO rental_furni (rental_id,quantity,invoice_id) VALUES ('{$renID}','{$renFuni}','$invoiceID')";
             $query = $db->query($sqlFurni);
@@ -34,15 +35,31 @@
             }
         }
 
+        $userAddress=$_POST['userAddress'];
+        $levels=$_POST['levels'];
+        // $invoiceID=$_POST['invoiceID'];
+        $shootdate=$_POST['shootdate'];
+        $deliveryTime=$_POST['deliveryTime'];
+        $remark=$_POST['remark'];
+        $promotionCode=$_POST['promotionCode'];
+
         // $Drop=$_SESSION['userID'];
         // $packageIDs=$_POST['package_id'];
         // $num_pax=$_POST['tot_amount'];
         // $priceMenu=$_POST['fee'];
 
-        // $sql5="INSERT INTO invoice(userID, packageID, invoice_id, num_pax, priceMenu)
-        // VALUES ('$Drop','$packageIDs','$orderID','$num_pax','$priceMenu')";
-        // $query5 = $db->query($sql5);
-        // echo "<script>window.location.assign('packageAddon.php?id=$packageID&invoice=$orderID');</script>";
+        $sqldeliver="UPDATE invoice SET addressD='$userAddress', levelFloor='$levels', eventTime='$deliveryTime', 
+        eventDate='$shootdate',remark='$remark',promotionCode='$promotionCode'
+        WHERE invoice_id='$invoiceID'";
+        $querydeliver = $db->query($sqldeliver);
+        echo $sqldeliver;
+        echo $invid;
+
+        // $sqldeliver="UPDATE  invoice set(addressD, levelFloor, eventTime, eventDate,remark,promotionCode)
+        // VALUES ('$userAddress','$levels','$deliveryTime','$shootdate','$remark','$promotionCode') 
+        // WHERE invoice_id='$invid'";
+        // $querydeliver = $db->query($sqldeliver);
+        echo "<script>window.location.assign('packageBill.php?id=$packageIDs&invoice=$invoiceID');</script>";
     }
 }
 ?>
@@ -314,9 +331,13 @@
                         </div>
                     </div>
                     <!-- End Other Infor -->
+                    
+                    <!-- PackageID -->
+                    <input type="text" class="form-control" id="" value="<?php echo $packageID ?>" name="packageIDs" hidden>
+                    <!-- End Package ID -->
 
                     <!-- InvoiceID -->
-                        <input type="text" class="form-control" id="" value="<?php echo $invid ?>" name="invoiceID">
+                        <input type="text" class="form-control" id="" value="<?php echo $invid ?>" name="invoiceID" hidden>
                     <!-- End Invoice ID -->
                     </div>
 
