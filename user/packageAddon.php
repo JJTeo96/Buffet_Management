@@ -6,6 +6,7 @@
 
 <?php if(isset($_GET['invoice'])){
     $invid=$_GET['invoice'];
+    echo $invid;
 } ?>
 
 <?php if(isset($_POST['submitt'])){
@@ -13,13 +14,15 @@
         echo "<script>alert('You must Login!');</script>";
         echo "<script>window.location.assign('../user_login/login.php');</script>";
         exit;
+       
     }else{
-        foreach($_POST['renFuni'] as $renID=>$selected){
-            // echo "<script>alert('Total Price :" . $selected . "')</script>";
-            // echo $selected;
+        foreach($_POST['renID'] as $selected => $renID){
+            $renFuni = $_POST['renFuni'][$selected];
+            $invoiceID=$_POST['invoiceID'];
             
-            $sqlFurni = "INSERT INTO rental_furni (rental_id,quantity,invoice_id) VALUES ('$renID','$selected','$invid')";
+            $sqlFurni = "INSERT INTO rental_furni (rental_id,quantity,invoice_id) VALUES ('{$renID}','{$renFuni}','$invoiceID')";
             $query = $db->query($sqlFurni);
+            echo $sqlFurni;
 
             if($query){
                 // echo "<script>alert('Success !');</script>";
@@ -202,7 +205,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Address:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="staticEmail" value="<?php echo $rowu['userAddress'] ?>">
+                            <input type="text" class="form-control" id="" name="userAddress" value="<?php echo $rowu['userAddress'] ?>">
                         </div>
                     </div>
                     <!-- End Delivery Address -->
@@ -227,19 +230,19 @@
                             <label for="staticEmail" class="col-sm-3 col-form-label">Level:</label>
                             <div class="col-sm-8">
                                 <input type="number" class="form-control form-control-inline" 
-                                placeholder="Lvl" name="Plastic Stools" min="1" id="newsSource" disabled=""> 
+                                placeholder="Lvl" name="levels" min="1" id="newsSource" disabled=""> 
                             </div>
 
                             <label for="staticEmail" class="col-sm-3 col-form-label">Delivery Date:</label>
                             <div class="col-sm-8">
                             <input class="form-control" nrequired type="text" name="shootdate" id="shootdate" title="Choose your desired date"
                             style="margin-top:1%">
-                            <small id="DateHelp" class="form-text text-muted">Only can choose before 5 Days.</small>
+                            <small id="DateHelp" class="form-text text-muted">Only can choose after 5 Days.</small>
                             </div>
 
                             <label for="staticEmail" class="col-sm-3 col-form-label">Delivery Time:</label>
                             <div class="col-sm-8">
-                                <select class="browser-default custom-select custom-select-lg mb-3">
+                                <select class="browser-default custom-select custom-select-lg mb-3" name="deliveryTime">
                                     <optgroup label = "MORNING">
                                         <option value="08:30AM">08:30 AM</option>
                                         <option value="08:45AM">08:45 AM</option>
@@ -301,17 +304,20 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Promotion Code:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="" value="">
+                            <input type="text" class="form-control" id="" value="" name="promotionCode">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Remark:</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="remark"></textarea>
                         </div>
                     </div>
                     <!-- End Other Infor -->
-                    
+
+                    <!-- InvoiceID -->
+                        <input type="text" class="form-control" id="" value="<?php echo $invid ?>" name="invoiceID">
+                    <!-- End Invoice ID -->
                     </div>
 
                 </div>
