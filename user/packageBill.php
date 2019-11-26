@@ -31,7 +31,7 @@
     <!-- card -->
     <div class="col-2">
       <div class="card" style="width: 18rem;">
-        <p style="text-align:center"><i class="icofont-restaurant"></i> ORDER ITEMS</p><br/>
+        <p style="text-align:center"><i class="icofont-restaurant"></i> ORDERED ITEMS</p><br/>
         <img src="vendor/assets/img/Package/<?php echo $row['package_img'];?>" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title"><?php echo $row['package_name'];?></h5>
@@ -85,9 +85,43 @@
             </div>
         </div> -->
     </div>
-         
-    <!-- Right table -->
+
     <div class="col-12">
+        <div class="demo demo-left">
+            <!-- Card -->
+            <div class="card">
+                <div class="card-header ">
+                    Selected Equipment Rental List
+                </div>
+                <div class="card-body">
+
+                <!-- Php Rental -->
+                <?php 
+                    $r = mysqli_query($db,"SELECT * FROM rental_details 
+                    LEFT JOIN rental_furni ON rental_furni.rental_id=rental_details.rental_id
+                    LEFT JOIN invoice ON invoice.invoice_id=rental_furni.invoice_id WHERE invoice.invoice_id='$invid' 
+                    AND rental_furni.quantity NOT LIKE '0'");
+                    while($rowr = mysqli_fetch_array($r, MYSQLI_ASSOC)):
+                ?>
+                
+                <div class="form-group row">
+                        <label for="staticEmail" class="col-md-8 col-form-label">◾ <?php echo $rowr['furniture_name']; ?> : </label>
+                        <div class="col-sm-3">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowr['quantity']; ?> ">
+                        </div>
+                </div>
+                <?php endwhile; ?>
+                <!-- End Php rental -->
+               
+                </div>
+            </div>
+            <!-- End Card -->           
+        </div>
+    </div>
+    <!-- end rental -->
+
+    <!-- Right table -->
+    <div class="col-12" style="margin-top:3%">
         <div class="demo demo-left">
             <!-- Card -->
             <div class="card">
@@ -98,8 +132,10 @@
                 <div class="card-body">
                     <?php 
                     $userName=$_SESSION['userName'];
-                            $userr = mysqli_query($db,"SELECT * FROM user WHERE userName = '$userName'");
-                            while($rowu = mysqli_fetch_array($userr)){
+                            $userr = mysqli_query($db,"SELECT * FROM user
+                            LEFT JOIN invoice ON invoice.userID=user.userID
+                            WHERE user.userName = '$userName' AND invoice.invoice_id='$invid'");
+                            while($rowui = mysqli_fetch_array($userr)){
                     ?>
 
                     <!-- Personal Infor -->
@@ -117,17 +153,17 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Email Address:</label>
                         <div class="col-sm-8">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowu['userEmail'] ?>">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowui['userEmail'] ?>">
                         </div>
                         
                         <label for="staticEmail" class="col-sm-3 col-form-label">Contact 1:</label>
                         <div class="col-sm-8">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowu['userContact1'] ?>">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowui['userContact1'] ?>">
                         </div>
 
                         <label for="staticEmail" class="col-sm-3 col-form-label">Contact 2:</label>
                         <div class="col-sm-8">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowu['userContact2'] ?>">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowui['userContact2'] ?>">
                         </div>
                     </div>
                     <!-- End Contact Infor -->
@@ -137,97 +173,31 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Address:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="staticEmail" value="<?php echo $rowu['userAddress'] ?>">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowui['addressD'] ?>">
                         </div>
                     </div>
                     <!-- End Delivery Address -->
-                    <?php } ?>
+                    
 
                     <!-- Delivery Infor  -->
                     <i><h6 class="card-title">Delivery Information</h6></i>
                     <div class="form-group row">
-                        <label for="staticEmail" class="col-sm-3 col-form-label">Lift Access:</label>
-                        <div class="col-sm-8">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="isNews" value="yes">
-                                <label class="form-check-label" for="inlineRadio1">Yes</label>
-                            </div>
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" 
-                                value="no" checked>
-                                <label class="form-check-label" for="inlineRadio2">No</label>
-                            </div>
-                            </div>
-
                             <label for="staticEmail" class="col-sm-3 col-form-label">Level:</label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control form-control-inline" 
-                                placeholder="Lvl" name="Plastic Stools" min="1" id="newsSource" disabled=""> 
+                                <input type="number" class="form-control-plaintext form-control-inline" 
+                                placeholder="Lvl" name="" min="1" id="newsSource" readonly value="<?php echo $rowui['levelFloor'] ?>"> 
                             </div>
 
                             <label for="staticEmail" class="col-sm-3 col-form-label">Delivery Date:</label>
                             <div class="col-sm-8">
-                            <input class="form-control" nrequired type="text" name="shootdate" id="shootdate" title="Choose your desired date"
-                            style="margin-top:1%">
-                            <small id="DateHelp" class="form-text text-muted">Only can choose before 5 Days.</small>
+                            <input   type="text" name="shootdate" id="" title="Choose your desired date"
+                            style="margin-top:1%" value="<?php echo $rowui['eventDate'] ?>" readonly class="form-control-plaintext">
                             </div>
 
                             <label for="staticEmail" class="col-sm-3 col-form-label">Delivery Time:</label>
                             <div class="col-sm-8">
-                                <select class="browser-default custom-select custom-select-lg mb-3">
-                                    <optgroup label = "MORNING">
-                                        <option value="08:30AM">08:30 AM</option>
-                                        <option value="08:45AM">08:45 AM</option>
-                                        <option value="09:00AM">09:00 AM</option>
-                                        <option value="09:15AM">09:15 AM</option>
-                                        <option value="09:30AM">09:30 AM</option>
-                                        <option value="09:45AM">09:45 AM</option>
-                                        <option value="10:00AM">10:00 AM</option>
-                                        <option value="10:15AM">10:15 AM</option>
-                                        <option value="10:30AM">10:30 AM</option>
-                                        <option value="10:45AM">10:45 AM</option>
-                                        <option value="11:00AM">11:00 AM</option>
-                                        <option value="11:15AM">11:15 AM</option>
-                                        <option value="11:30AM">11:30 AM</option>
-                                        <option value="11:45AM">11:45 AM</option>
-                                    </optgroup>
-                                    <optgroup label = "AFTERNOON">
-                                        <option value="12:00PM">12:00 PM</option>
-                                        <option value="12:15PM">12:15 PM</option>
-                                        <option value="12:30PM">12:30 PM</option>
-                                        <option value="12:45PM">12:45 PM</option>
-                                        <option value="01:00PM">01:00 PM</option>
-                                        <option value="01:15PM">01:15 PM</option>
-                                        <option value="01:30PM">01:30 PM</option>
-                                        <option value="01:45PM">01:45 PM</option>
-                                        <option value="02:00PM">02:00 PM</option>
-                                        <option value="02:15PM">02:15 PM</option>
-                                        <option value="02:30PM">02:30 PM</option>
-                                        <option value="02:45PM">02:45 PM</option>
-                                        <option value="03:00PM">03:00 PM</option>
-                                        <option value="03:15PM">03:15 PM</option>
-                                        <option value="03:30PM">03:30 PM</option>
-                                        <option value="03:45PM">03:45 PM</option>
-                                        <option value="04:00PM">04:00 PM</option>
-                                        <option value="04:15PM">04:15 PM</option>
-                                        <option value="04:30PM">04:30 PM</option>
-                                        <option value="04:45PM">04:45 PM</option>
-                                    </optgroup>
-                                    <optgroup label = "EVENING">
-                                        <option value="05:00PM">05:00 PM</option>
-                                        <option value="05:15PM">05:15 PM</option>
-                                        <option value="05:30PM">05:30 PM</option>
-                                        <option value="05:45PM">05:45 PM</option>
-                                        <option value="06:00PM">06:00 PM</option>
-                                        <option value="06:15PM">06:15 PM</option>
-                                        <option value="06:30PM">06:30 PM</option>
-                                        <option value="06:45PM">06:45 PM</option>
-                                        <option value="07:00PM">07:00 PM</option>
-                                        <option value="07:15PM">07:15 PM</option>
-                                        <option value="07:30PM">07:30 PM</option>
-                                    </optgroup>
-                                </select>
-                        </div>
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowui['eventTime'] ?>">
+                            </div>
                         <!-- End Delivery Infor -->
                     </div>
 
@@ -236,17 +206,17 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Promotion Code:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="" value="">
+                            <input type="text" readonly class="form-control-plaintext" id="" value="<?php echo $rowui['promotionCode'] ?>">
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="" class="col-sm-3 col-form-label">Remark:</label>
                         <div class="col-sm-8">
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <textarea class="form-control-plaintext" readonly id="exampleFormControlTextarea1" rows="3" ><?php echo $rowui['remark'] ?></textarea>
                         </div>
                     </div>
                     <!-- End Other Infor -->
-                    
+                    <?php } ?>
                     </div>
 
                 </div>
@@ -255,44 +225,12 @@
             <!-- End Card -->           
         </div>
         
-        <div class="col-12">
-        <div class="demo demo-left">
-            <!-- Card -->
-            <div class="card">
-                <div class="card-header ">
-                    Selected Equipment Rental List
-                </div>
-                <div class="card-body">
-
-                <!-- Php Rental -->
-                <?php 
-                    $r = mysqli_query($db,"SELECT * FROM rental_details ");
-                    while($rowr = mysqli_fetch_array($r, MYSQLI_ASSOC)):
-                ?>
-
-                <div class="form-group"> 
-                    <div class="checkbox"> 
-                        <label class="col-md-8">
-                            <!-- <input type="checkbox" value="" name="Full set of Porcelain Wares and Glasswares">  -->
-                            ◾ <?php echo $rowr['furniture_name']; ?>  
-                        </label>
-                        <input type="number" class="form-control form-control-inline" 
-                        placeholder="Qty" name="Plastic Stools" min="1" max="30"> 
-                        <span class="col-md-4">/ RM<?php echo $rowr['rental_price']; ?></span> 
-                    </div> 
-                </div>
-                <?php endwhile; ?>
-                <!-- End Php rental -->
-               
-                </div>
-            </div>
-            <!-- End Card -->           
-        </div>
-        </div>
-        <!-- end rental -->
+        
 
     </div>
     <!-- End right table -->
+
+    
 
     <div class="col-4" style="margin-top: 3%;margin-left:55%;padding-bottom: 5%;" data-push-left="off-3" data-push-right="off-3" >
         <div class="demo demo-left">
