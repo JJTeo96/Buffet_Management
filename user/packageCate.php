@@ -5,6 +5,13 @@
     // echo $packageID;
 } ?>
 
+<?php if(isset($_GET['pk_dishesID'])){
+    $pk_dishesID=$_GET['pk_dishesID'];
+    // echo $pk_dishesID;
+}?>
+
+
+
 <!-- Submit orders -->
 <?php if(isset($_POST['submitt'])){
     if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
@@ -154,7 +161,11 @@ if(isset($_POST['submitt']))
         <div class="col grid-equalHeight" style="margin-top:-50%">
 
         <?php
-            $sql = "SELECT * FROM course";
+            $sql = "SELECT * FROM course 
+            -- LEFT JOIN dishes ON dishes.courseID=course.courseID
+            -- LEFT JOIN package_dishes ON package_dishes.dishesID=dishes.dishesID
+            -- -- LEFT JOIN package ON package.pk_dishesID=package_dishes.pk_dishesID 
+            -- WHERE package_dishes.display='1'";
             $query = $db->query($sql);
             if($query->num_rows>0){
             while($row=$query->fetch_assoc()){
@@ -171,7 +182,11 @@ if(isset($_POST['submitt']))
                         <div class="card-body">
                             <!--Checkbox -->
                             <?php
-                            $sql2 = "SELECT * FROM dishes WHERE courseID = '$courseID'";
+                            // $sql2 = "SELECT * FROM dishes WHERE courseID = '$courseID'";
+                            $sql2="SELECT * FROM dishes LEFT JOIN course ON course.courseID = dishes.courseID
+                            LEFT JOIN package_dishes ON package_dishes.dishesID=dishes.dishesID
+                            LEFT JOIN package ON package.pk_dishesID=package_dishes.pk_dishesID
+                            WHERE package.pk_dishesID='$pk_dishesID'AND course.courseID=$courseID";
                             $query2 = $db->query($sql2);
 
                             if($query2->num_rows>0){

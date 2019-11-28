@@ -18,6 +18,9 @@
     width: 90px;
     display: inline;
 }
+#p{
+    color:black;
+}
 </style>
 <!-- Container -->
 <div class="container" style="margin-top:3%">
@@ -100,14 +103,15 @@
                     $r = mysqli_query($db,"SELECT * FROM rental_details 
                     LEFT JOIN rental_furni ON rental_furni.rental_id=rental_details.rental_id
                     LEFT JOIN invoice ON invoice.invoice_id=rental_furni.invoice_id WHERE invoice.invoice_id='$invid' 
-                    AND rental_furni.quantity NOT LIKE '0'");
+                    AND rental_furni.quantityFurni NOT LIKE '0'");
                     while($rowr = mysqli_fetch_array($r, MYSQLI_ASSOC)):
                 ?>
                 
                 <div class="form-group row">
                         <label for="staticEmail" class="col-md-8 col-form-label">◾ <?php echo $rowr['furniture_name']; ?> : </label>
                         <div class="col-sm-3">
-                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowr['quantity']; ?> ">
+                            <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowr['quantity']; ?>" hidden>
+                            <p id="p">Qty: <?php echo $rowr['quantity']; ?> / RM<?php echo $rowr['rental_price']; ?></p>
                         </div>
                 </div>
                 <?php endwhile; ?>
@@ -225,7 +229,119 @@
             <!-- End Card -->           
         </div>
         
-        
+        <!-- Payment Details-->
+            <!-- Right table -->
+            <div class="col-12" style="margin-top:3%">
+                <div class="demo demo-left">
+                    <!-- Card -->
+                    <div class="card">
+                        <div class="card-header ">
+                            Bill Details
+                        </div>
+                        <!-- Card Body -->
+                        <div class="card-body">
+                            <?php 
+                                    $bill = mysqli_query($db,"SELECT * FROM invoice
+                                    WHERE invoice_id='$invid'");
+                                    while($rowBill = mysqli_fetch_array($bill)){
+                            ?>
+
+                            <!-- Bill Infor -->
+                            <!-- <i><h6 class="card-title">Personal Information</h6></i> -->
+                            <div class="form-group row">
+                                <label for="staticEmail" class="col-sm-6 col-form-label">Menu:</label>
+                                <div class="col-sm-4">
+                                    <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="<?php echo $rowBill['priceMenu'] ?>"> -->
+                                    <p id="p">RM <?php echo $rowBill['priceMenu'] ?></p>
+                                </div>
+
+                                <label for="staticEmail" class="col-sm-6 col-form-label">Transport:</label>
+                                <div class="col-sm-4">
+                                    <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="50"> -->
+                                    <p id="p" >RM 50</p>
+                                </div>
+                                
+                                <!-- Rental -->
+                                <?php 
+                                    $ren = mysqli_query($db,"SELECT SUM(quantityFurni*rental_price)renTotal FROM rental_details
+                                    LEFT JOIN rental_furni ON rental_furni.rental_id=rental_details.rental_id
+                                    LEFT JOIN invoice ON invoice.invoice_id=rental_furni.invoice_id
+                                    WHERE rental_furni.invoice_id='$invid'");
+                                    while($rowRen = mysqli_fetch_array($ren)){
+                                        // $RentalPrice=$rowRen['quantityFurni']*$rowRen['rental_price'];
+                                        // $TotalRenPrice+=$RentalPrice;
+                                ?>
+
+                                <label for="staticEmail" class="col-sm-6 col-form-label">Optional Equipment(rental):</label>
+                                <div class="col-sm-4">
+                                    
+                                    <p id="p">RM<?php echo $rowRen['renTotal'] ?></p>
+                                    <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="<?php echo $rowRen['renTotal'] ?>"> -->
+                                </div>
+                                
+                                <!-- End rental -->
+
+                                <label for="staticEmail" class="col-sm-6 col-form-label">Subtotal:</label>
+                                <div class="col-sm-4">
+                                    <?php $subTotal= $rowBill['priceMenu']+$rowRen['renTotal']+50 ?>
+                                    <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="<?php echo $subTotal ?>"> -->
+                                    <p id="p">RM <?php echo $subTotal ?></p>
+                                </div>
+
+                                 <!-- Discount -->
+                                 <?php 
+                                    $disc = mysqli_query($db,"SELECT * FROM promotion
+                                    LEFT JOIN invoice ON invoice.promotionCode=promotion.coupon_code
+                                    WHERE invoice_id='$invid'");
+                                    while($rowDisc = mysqli_fetch_array($disc)){
+                                ?>
+                                <label for="staticEmail" class="col-sm-6 col-form-label">Discount:</label>
+                                <div class="col-sm-4">
+                                    <?php $discPrice= $subTotal*$rowDisc['discount_rate']/100 ?>
+                                    <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="<?php echo $rowBill['priceMenu'] ?>"> -->
+                                    <p id="p">RM <?php echo $discPrice ?></p>
+                                </div>
+                                <?php }?>
+                                <!-- End Discount -->
+
+                                <label for="staticEmail" class="col-sm-6 col-form-label">SST 6%:</label>
+                                <div class="col-sm-4">
+                                    <?php 
+                                    $afterDis=$subTotal-$discPrice;
+                                    $sst= $afterDis*6/100 ?>
+                                    <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="<?php echo $sst ?>"> -->
+                                    <p id="p">RM <?php echo $sst ?></p>
+                                </div>
+
+                                <label for="staticEmail" class="col-sm-6 col-form-label"><b>Grand Total:</b></label>
+                                <div class="col-sm-4">
+                                    <?php $GrandTotal= $subTotal+$sst ?>
+                                    <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
+                                    id="" value="<?php echo $GrandTotal ?>" hidden>
+                                    <b><p id="p">RM <?php echo $GrandTotal ?></p></b>
+                                </div>
+
+                            </div>
+                            <!-- End Bill Infor -->
+                            <?php }?>
+                            
+                            <?php } ?>
+                            </div>
+
+                        </div>
+                        <!-- End Card body -->
+                    </div>
+                    <!-- End Card -->           
+                </div>
+            </div>
+            <!-- End right table -->
+        <!-- End Payment Details -->
 
     </div>
     <!-- End right table -->
@@ -234,10 +350,53 @@
 
     <div class="col-4" style="margin-top: 3%;margin-left:55%;padding-bottom: 5%;" data-push-left="off-3" data-push-right="off-3" >
         <div class="demo demo-left">
-            <div class="card text-center">
-                <input type="submit" class="button button-royal button-rounded button-giant" value="Submit &raquo;"
-                name="submitt">
-            </div>
+            
+                <!-- Paypal -->
+                <div id="paypal-button">
+
+                <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+                <script>
+                    paypal.Button.render({
+
+                        env: 'sandbox', // Or 'sandbox'
+
+                        client: {
+                            // sandbox id
+                            sandbox:    'AZ_2DK0P5kCtIu24a2jZuDDVRKLs2WndyuCCrbV-ql6X8pi_X-YSws74ggcic5MqvInSXr9s4Xy0vGxl'
+                        },
+
+                        commit: true, // Show a 'Pay Now' button
+
+                        payment: function(data, actions) {
+                            return actions.payment.create({
+                                payment: {
+                                    transactions: [
+                                        {
+                                            // data that you want to be noted
+                                            amount: { total: '<?php echo $GrandTotal ?>', currency: 'MYR' },
+                                            invoice_number: '<?php echo $invid ?>'
+                                        }
+                                    ]
+                                }
+                            });
+                        },
+
+                        onAuthorize: function(data, actions) {
+                            return actions.payment.execute().then(function(payment) {
+                                window.alert('Payment Complete!');
+                                // The payment is complete!
+                                // You can now show a confirmation message to the customer
+                            });
+                        }
+
+                    }, '#paypal-button');
+			    </script>
+                <!-- End Paypal -->
+
+                <!-- <input type="submit" class="button button-royal button-rounded button-giant" value="Submit &raquo;"
+                name="submitt"> -->
+            
         </div>
     </div>
     
@@ -258,5 +417,3 @@
 	   	});
 	});
     </script>
-
-    

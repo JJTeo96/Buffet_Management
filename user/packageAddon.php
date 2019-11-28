@@ -6,7 +6,7 @@
 
 <?php if(isset($_GET['invoice'])){
     $invid=$_GET['invoice'];
-    echo $invid;
+    // echo $invid;
 } ?>
 
 <?php if(isset($_POST['submitt'])){
@@ -21,9 +21,9 @@
             $invoiceID=$_POST['invoiceID'];
             $packageIDs=$_POST['packageIDs'];
             
-            $sqlFurni = "INSERT INTO rental_furni (rental_id,quantity,invoice_id) VALUES ('{$renID}','{$renFuni}','$invoiceID')";
+            $sqlFurni = "INSERT INTO rental_furni (rental_id,quantityFurni,invoice_id) VALUES ('{$renID}','{$renFuni}','$invoiceID')";
             $query = $db->query($sqlFurni);
-            echo $sqlFurni;
+            // echo $sqlFurni;
 
             if($query){
                 // echo "<script>alert('Success !');</script>";
