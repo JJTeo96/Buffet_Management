@@ -28,7 +28,8 @@ $userName=$_SESSION['userName'];
                                 <input type="hidden" name="userID" value="<?php echo $row['userID'];?>">
                                 <label for="username" class="col-4 col-form-label">User Name : </label> 
                                 <div class="col-8">
-                                  <input id="username" name="username" placeholder="Username" class="form-control here"  type="text" value="<?php echo ucwords($row['userName']);?>">
+                                  <input id="username" name="username" placeholder="Username" class="form-control-plaintext here"  
+                                  type="text" value="<?php echo ucwords($row['userName']);?>" readonly>
                                   
                                 </div>
                               </div>
