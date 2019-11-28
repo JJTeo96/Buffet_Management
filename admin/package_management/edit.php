@@ -4,12 +4,60 @@
 	$id=$_GET['id'];
 	
 	$package_name=$_POST['package_name'];
+	$fileToUpload=$_POST['fileToUpload'];
 	$package_courses=$_POST['package_courses'];
 	$price=$_POST['price'];
 	$min_pax=$_POST['min_pax'];
+	$file_name = $_FILES["fileToUpload"]["name"];
 	
-	mysqli_query($conn,"update package set package_name='$package_name', package_courses='$package_courses', price='$price', min_pax='$min_pax' where package_id='$id'");
-	header('location:index.php');
-	exit;
+	mysqli_query($conn,"update package set package_name='$package_name', package_img='$file_name', package_courses='$package_courses', price='$price', min_pax='$min_pax' where package_id='$id'");
+	// header('location:index.php');
+	// exit;
 
+?>
+
+
+<?php
+    $target_dir = "../../user/vendor/assets/img/Package/";
+    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+    $uploadOk = 1;
+    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+    // Check if image file is a actual image or fake image
+    if(isset($_POST["submit"])) {
+        $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        if($check !== false) {
+            echo "File is an image - " . $check["mime"] . ".";
+            $uploadOk = 1;
+        } else {
+            echo "File is not an image.";
+            $uploadOk = 0;
+        }
+    }
+    // Check if file already exists
+    if (file_exists($target_file)) {
+        echo "<script>alert('Sorry, file already exists.');</script>";
+        $uploadOk = 0;
+    }
+    // Check file size
+    if ($_FILES["fileToUpload"]["size"] > 500000) {
+        echo "Sorry, your file is too large.";
+        $uploadOk = 0;
+    }
+    // Allow certain file formats
+    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
+    && $imageFileType != "gif" ) {
+        echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+        $uploadOk = 0;
+    }
+    // Check if $uploadOk is set to 0 by an error
+    if ($uploadOk == 0) {
+        echo "Sorry, your file was not uploaded.";
+    // if everything is ok, try to upload file
+    } else {
+        if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
+            echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        } else {
+            echo "Sorry, there was an error uploading your file.";
+        }
+    }
 ?>

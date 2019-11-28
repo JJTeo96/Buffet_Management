@@ -15,7 +15,7 @@
 <!-- <link rel="stylesheet" href="../vendor/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<div class="container">
+<div class="">
 	<div style="height:50px;"></div>
 	<h1 style="text-align:center">Package Management</h1>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
@@ -27,9 +27,11 @@
 			<thead>
 				<th>Package ID</th>
 				<th>Name</th>
+				<th>Image</th>
 				<th>Courses</th>
 				<th>Price /PAX</th>
 				<th>Min /PAX</th>
+				<th>Dishes</th>
 				<th>Action</th>
 			</thead>
             
@@ -43,13 +45,15 @@
 					<tr>
 						<td><?php echo $row['package_id']; ?></td>
 						<td><?php echo $row['package_name']; ?></td>
+						<td><?php echo "<img src='../../user/vendor/assets/img/Package/".$row['package_img']."' height='80' width='140'/>"; ?></td>
 						<td><?php echo $row['package_courses']; ?></td>
 						<td><?php echo $row['price']; ?></td>
 						<td><?php echo $row['min_pax']; ?></td>
+						<td><a href="#dis<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-info"> View Dishes</a></td>
 						<td>
 							<a href="#edit<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
-							<a href="#del<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
-                            <a href="#view<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-info"> View</a>
+							<a href="#del<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a>
+                            <!-- <a href="#view<?php echo $row['package_id']; ?>" data-toggle="modal" class="btn btn-info"> View</a> -->
 							<?php include('button.php'); ?>
 						</td>
 					</tr>
