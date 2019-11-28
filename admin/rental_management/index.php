@@ -15,7 +15,7 @@
 <!-- <link rel="stylesheet" href="../vendor/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<div class="container">
+<div class="">
 	<div style="height:50px;"></div>
 	<h1 style="text-align:center">Furniture Management</h1>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
