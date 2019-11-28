@@ -26,14 +26,14 @@
 							<input type="text" class="form-control" name="discount_rate">
 						</div>
 					</div>
-					<!-- <div class="form-group">
+					<div class="form-group">
 						<div>
 							<label class="control-label" style="position:relative; top:7px;">Quantity:</label>
 						</div>
 						<div>
 							<input type="text" class="form-control" name="quantity">
 						</div>
-					</div> -->
+					</div>
                 </div> 
 				</div>
                 <div class="modal-footer">

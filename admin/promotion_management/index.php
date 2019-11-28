@@ -29,7 +29,7 @@
 				<th>Coupon Code</th>
 				<!-- Name -->
 				<th>Discount Rate</th>
-				<!-- <th>Quantity</th> -->
+				<th>Quantity</th>
 				<th>Action</th>
 			</thead>
             
@@ -44,7 +44,7 @@
 						<td><?php echo $row['pro_id']; ?></td>
 						<td><?php echo $row['coupon_code']; ?></td>
 						<td><?php echo $row['discount_rate'];?>%</td>
-						<!-- <td><?php echo $row['quantity'];?></td> -->
+						<td><?php echo $row['quantity'];?></td>
 						<td>
 							<a href="#edit<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-warning"> Edit</a> || 
 							<a href="#del<?php echo $row['pro_id']; ?>" data-toggle="modal" class="btn btn-danger"> Delete</a> ||
