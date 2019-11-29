@@ -98,7 +98,7 @@ include('../config/database.php');
                 </li> -->
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="promotion.php">
                         Promotions
                     </a>
                 </li>
@@ -119,6 +119,7 @@ include('../config/database.php');
                         // echo $_SESSION["userName"];'</a>';
                         echo '<div class="dropdown-menu" aria-labelledby="dropdown05">';
                         echo '<a class="dropdown-item" href="profile.php">Profile</a>';
+                        echo '<a class="dropdown-item" href="promotionApply.php">Promotion Got</a>';
                         echo '<a class="dropdown-item" href="orderedRecord.php">Order History</a>';
                         // echo '<a class="dropdown-item" href="#">Another action</a>';
                         echo '</div></li>';
