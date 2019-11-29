@@ -321,7 +321,21 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Promotion Code:</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="" value="" name="promotionCode">
+                            <!-- Select -->     
+                            <select class="form-control" id="exampleFormControlSelect1"  name="promotionCode">
+                                <?php
+                                    $userID=$_SESSION['userID'];
+                                    $promo = mysqli_query($db,"SELECT * FROM promotionget
+                                    LEFT JOIN promotion ON promotion.coupon_code=promotionget.coupon_code where userID='$userID'");
+                                    while($row = mysqli_fetch_array($promo)){
+                                ?>
+                                <option value="<?php echo $row['coupon_code'];?>"><?php echo $row['coupon_code'];?> / <?php echo $row['discount_rate'];?>%</option>
+                                <?php 
+                                    }
+                                ?>
+                            </select>
+                            <!-- End select -->	
+                            <!-- <input type="text" class="form-control" id="" value="" name="promotionCode"> -->
                         </div>
                     </div>
                     <div class="form-group row">
