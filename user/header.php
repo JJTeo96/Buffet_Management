@@ -104,7 +104,7 @@ include('../config/database.php');
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="aboutus.php">
                         About us
                     </a>
                 </li>
