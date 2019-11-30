@@ -5,11 +5,10 @@
         $getCp=$_POST['getCp'];
         $userID=$_SESSION['userID'];
             
-        mysqli_query($conn,"insert into promotionget (coupon_code, userID) 
-        values ('$getCp', '$userID')");
+        // mysqli_query($conn,"insert into promotionget (coupon_code, userID) 
+        // values ('$getCp', '$userID')");
         
-        $promoGet="INSERT INTO promotionget(coupon_code, userID)
-        VALUES ('$getCp', '$userID')";
+        $promoGet="INSERT INTO promotionget SET coupon_code='$getCp',userID='$userID'";
         $query = $db->query($promoGet);
 
         if($query){
@@ -19,7 +18,9 @@
         }else {
             echo "<script>alert('Fail !');</script>";
             // echo "<script>window.location.assign('combine-table.php');</script>";
-        }
+		}
+		$promoQuan="UPDATE promotion SET quantity= quantity - 1 WHERE coupon_code='$getCp'";
+        $queryQuan = $db->query($promoQuan);
     }
 	
 ?>
