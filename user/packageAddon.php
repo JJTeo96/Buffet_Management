@@ -52,8 +52,8 @@
         eventDate='$shootdate',remark='$remark',promotionCode='$promotionCode'
         WHERE invoice_id='$invoiceID'";
         $querydeliver = $db->query($sqldeliver);
-        echo $sqldeliver;
-        echo $invid;
+        // echo $sqldeliver;
+        // echo $invid;
 
         // $sqldeliver="UPDATE  invoice set(addressD, levelFloor, eventTime, eventDate,remark,promotionCode)
         // VALUES ('$userAddress','$levels','$deliveryTime','$shootdate','$remark','$promotionCode') 
