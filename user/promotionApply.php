@@ -6,8 +6,8 @@
 <!-- <link rel="stylesheet" href="../vendor/bootstrap/3.3.6/css/bootstrap.min.css" /> -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- Material Design Bootstrap -->
-<link href="vendor/assets/MDB/css/mdb.min.css" rel="stylesheet">
-<link href="vendor/assets/MDB/css/style.css" rel="stylesheet">
+<!-- <link href="vendor/assets/MDB/css/mdb.min.css" rel="stylesheet">
+<link href="vendor/assets/MDB/css/style.css" rel="stylesheet"> -->
 
 <form method="POST" action="promotion.php">
 <div class="container">
