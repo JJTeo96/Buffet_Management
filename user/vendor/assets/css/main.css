@@ -290,15 +290,15 @@ button:focus {
 /* ==============
     Navbar CSS
 ==================================== */
-.header-sticky.is-sticky {
+.header-sticky.sticky {
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 999;
 	box-shadow: 0 8px 6px -6px rgba(0,0,0,.4);
-	-webkit-animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
-	animation: 500ms ease-in-out 0s normal none 1 running fadeInDown;
+	-webkit-animation: 500ms ease-in-out 0s normal none 1 running ;
+	animation: 500ms ease-in-out 0s normal none 1 running ;
 }
 .edu-navbar {
 	background-color: #fff;
