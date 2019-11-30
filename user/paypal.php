@@ -15,6 +15,8 @@
             $subtt=$_POST['subtt'];
             $disco=$_POST['disco'];
             $ssttt=$_POST['ssttt'];
+            $promocode=$_POST['promocode'];
+            $useridd=$_POST['useridd'];
             
                 $query = "INSERT INTO payment(date,priceMenu,trans,renTotal,subTotal,discount,sst,price, invoice_id)
                 VALUES(now(),'$priceMe','$trans','$rentt','$subtt','$disco','$ssttt','$price','$invoice')";
@@ -26,6 +28,9 @@
                 }
 
                 $queryquant = "UPDATE rental_details SET quantity='$leftquanti' where rental_id='$renID'";
+                $resultquant = mysqli_query($db, $queryquant);
+
+                $queryquant = "DELETE FROM promotionget WHERE coupon_code='$promocode' AND userID='$useridd'";
                 $resultquant = mysqli_query($db, $queryquant);
             
             

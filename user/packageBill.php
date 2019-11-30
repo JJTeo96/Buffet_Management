@@ -156,6 +156,7 @@
                         <label for="staticEmail" class="col-sm-3 col-form-label">Name:</label>
                         <div class="col-sm-8">
                             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $_SESSION['userName'] ?>">
+                            <input type="text" id="useridd" value="<?php echo $_SESSION['userID'] ?>" hidden>
                         </div>
                     </div>
                     <!-- End personal Infor -->
@@ -218,7 +219,7 @@
                     <div class="form-group row">
                         <label for="staticEmail" class="col-sm-3 col-form-label">Promotion Code:</label>
                         <div class="col-sm-8">
-                            <input type="text" readonly class="form-control-plaintext" id="" value="<?php echo $rowui['promotionCode'] ?>">
+                            <input type="text" readonly class="form-control-plaintext" id="promocode" value="<?php echo $rowui['promotionCode'] ?>">
                         </div>
                     </div>
                     <div class="form-group row">
@@ -408,33 +409,30 @@
                                 $(document).ready(function (e) {
                                 // var invoice = document.getElementById("inv");
                                 // var price = document.getElementById("tt");
-
-                                var invoice = document.getElementById("inv").value;
-                                var price = document.getElementById("tt").value;
-                                var quant = document.getElementById("quant").value;
-                                var renID = document.getElementById("renID").value;
+                                
+                                // Payment
                                 var priceMe = document.getElementById("priceMe").value;
                                 var trans = document.getElementById("trans").value;
                                 var rentt = document.getElementById("rentt").value;
                                 var subtt = document.getElementById("subtt").value;
                                 var disco = document.getElementById("disco").value;
                                 var ssttt = document.getElementById("ssttt").value;
+                                var invoice = document.getElementById("inv").value;
+                                var price = document.getElementById("tt").value;
+                                // End payment
 
-                                alert(invoice);
-                                alert(priceMe);
-                                alert(trans);
-                                alert(rentt);
-                                alert(subtt);
-                                alert(disco);
-                                alert(ssttt);
-                            
-
+                                var quant = document.getElementById("quant").value;
+                                var renID = document.getElementById("renID").value;
+                                
+                                var promocode = document.getElementById("promocode").value;
+                                var useridd = document.getElementById("useridd").value;
+                        
                                 setTimeout(function () {
                                     $.ajax({
                                         url: address + "paypal.php",
                                         type: "POST",
                                         data: { price: price, invoice: invoice, quant:quant,renID:renID,priceMe:priceMe,trans:trans,
-                                            rentt:rentt,subtt:subtt,disco:disco,ssttt:ssttt },
+                                            rentt:rentt,subtt:subtt,disco:disco,ssttt:ssttt, promocode:promocode, useridd:useridd },
                                         success: function (data) {
                                             alert(data);
                                             window.location.href = '';
