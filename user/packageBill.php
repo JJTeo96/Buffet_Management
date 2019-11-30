@@ -11,6 +11,8 @@
 <!-- Material Design Bootstrap -->
 <link href="vendor/assets/MDB/css/mdb.min.css" rel="stylesheet">
 <link href="vendor/assets/MDB/css/style.css" rel="stylesheet">
+<script src="vendor/assets/js/ip.js"></script>
+
 
 <style>
 .form-control-inline {
@@ -22,6 +24,8 @@
     color:black;
 }
 </style>
+
+<form action="packageBill.php" method="POST">
 <!-- Container -->
 <div class="container" style="margin-top:3%">
   <div class="row">
@@ -111,9 +115,13 @@
                         <label for="staticEmail" class="col-md-8 col-form-label">◾ <?php echo $rowr['furniture_name']; ?> : </label>
                         <div class="col-sm-3">
                             <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="<?php echo $rowr['quantity']; ?>" hidden>
-                            <p id="p">Qty: <?php echo $rowr['quantity']; ?> / RM<?php echo $rowr['rental_price']; ?></p>
+                            <p id="p">Qty: <?php echo $rowr['quantityFurni']; ?> / RM<?php echo $rowr['rental_price']; ?></p>
+                            <input type="text" name="leftquan" value="<?php echo $rowr['quantityFurni']; ?>" hidden>
                         </div>
                 </div>
+                <?php $leftquanti=$rowr['quantity']-$rowr['quantityFurni']; ?>
+                <input type="text" id="quant" value="<?php echo $leftquanti; ?>" hidden>
+                <input type="text" id="renID" value="<?php echo $rowr['rental_id']; ?>" hidden>
                 <?php endwhile; ?>
                 <!-- End Php rental -->
                
@@ -253,6 +261,7 @@
                                 <div class="col-sm-4">
                                     <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
                                     id="" value="<?php echo $rowBill['priceMenu'] ?>"> -->
+                                    <input type="text" id="priceMe" value="<?php echo $rowBill['priceMenu'] ?>" hidden>
                                     <p id="p">RM <?php echo $rowBill['priceMenu'] ?></p>
                                 </div>
 
@@ -260,6 +269,7 @@
                                 <div class="col-sm-4">
                                     <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
                                     id="" value="50"> -->
+                                    <input type="text" id="trans" value="50" hidden>
                                     <p id="p" >RM 50</p>
                                 </div>
                                 
@@ -276,7 +286,7 @@
 
                                 <label for="staticEmail" class="col-sm-6 col-form-label">Optional Equipment(rental):</label>
                                 <div class="col-sm-4">
-                                    
+                                    <input type="text" id="rentt" value="<?php echo $rowRen['renTotal'] ?>" hidden> 
                                     <p id="p">RM<?php echo $rowRen['renTotal'] ?></p>
                                     <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
                                     id="" value="<?php echo $rowRen['renTotal'] ?>"> -->
@@ -287,6 +297,7 @@
                                 <label for="staticEmail" class="col-sm-6 col-form-label">Subtotal:</label>
                                 <div class="col-sm-4">
                                     <?php $subTotal= $rowBill['priceMenu']+$rowRen['renTotal']+50 ?>
+                                    <input type="text" id="subtt" value="<?php echo $subTotal?>" hidden>
                                     <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
                                     id="" value="<?php echo $subTotal ?>"> -->
                                     <p id="p">RM <?php echo $subTotal ?></p>
@@ -304,6 +315,7 @@
                                     <?php $discPrice= $subTotal*$rowDisc['discount_rate']/100 ?>
                                     <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
                                     id="" value="<?php echo $rowBill['priceMenu'] ?>"> -->
+                                    <input type="text" id="disco" value="<?php echo $discPrice?>" hidden>
                                     <p id="p">RM <?php echo $discPrice ?></p>
                                 </div>
                                 <?php }?>
@@ -316,6 +328,7 @@
                                     $sst= $afterDis*6/100 ?>
                                     <!-- <input type="text" style="text-align:right" readonly class="form-control-plaintext" 
                                     id="" value="<?php echo $sst ?>"> -->
+                                    <input type="text" id="ssttt" value="<?php echo $sst?>" hidden>
                                     <p id="p">RM <?php echo $sst ?></p>
                                 </div>
 
@@ -345,6 +358,12 @@
 
     </div>
     <!-- End right table -->
+
+    
+    <input type="text" id="inv" value="<?php echo $invid ?>" hidden>
+    <input type="text" id="tt" value="<?php echo $GrandTotal ?>" hidden>
+
+    
 
     
 
@@ -385,6 +404,44 @@
                         onAuthorize: function(data, actions) {
                             return actions.payment.execute().then(function(payment) {
                                 window.alert('Payment Complete!');
+
+                                $(document).ready(function (e) {
+                                // var invoice = document.getElementById("inv");
+                                // var price = document.getElementById("tt");
+
+                                var invoice = document.getElementById("inv").value;
+                                var price = document.getElementById("tt").value;
+                                var quant = document.getElementById("quant").value;
+                                var renID = document.getElementById("renID").value;
+                                var priceMe = document.getElementById("priceMe").value;
+                                var trans = document.getElementById("trans").value;
+                                var rentt = document.getElementById("rentt").value;
+                                var subtt = document.getElementById("subtt").value;
+                                var disco = document.getElementById("disco").value;
+                                var ssttt = document.getElementById("ssttt").value;
+
+                                alert(invoice);
+                                alert(priceMe);
+                                alert(trans);
+                                alert(rentt);
+                                alert(subtt);
+                                alert(disco);
+                                alert(ssttt);
+                            
+
+                                setTimeout(function () {
+                                    $.ajax({
+                                        url: address + "paypal.php",
+                                        type: "POST",
+                                        data: { price: price, invoice: invoice, quant:quant,renID:renID,priceMe:priceMe,trans:trans,
+                                            rentt:rentt,subtt:subtt,disco:disco,ssttt:ssttt },
+                                        success: function (data) {
+                                            alert(data);
+                                            window.location.href = '';
+                                        }
+                                    });
+                                }, 5000);
+                            });
                                 // The payment is complete!
                                 // You can now show a confirmation message to the customer
                             });
@@ -401,10 +458,12 @@
     </div>
     
     </div>
+    </form>
     <?php include_once('footer.php');?>
     
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script>
     $('#isNews').change(function(){
