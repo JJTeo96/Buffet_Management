@@ -9,7 +9,7 @@
 <!-- <link href="vendor/assets/MDB/css/mdb.min.css" rel="stylesheet">
 <link href="vendor/assets/MDB/css/style.css" rel="stylesheet"> -->
 
-<form method="POST" action="promotion.php">
+<form method="POST" action="orderedRecord.php">
 <div class="">
 	<div style="height:50px;"></div>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
@@ -43,8 +43,8 @@
 						<td><?php echo $row['invoice_id']; ?></td>	
 						<td><?php echo $row['createDate']; ?></td>	
 						<td>
-            <a href="invoice.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id'];; ?>" class="btn btn-warning"> Invoice</a> || 
-            <a href="deliveryOrder.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id'];; ?>" class="btn btn-danger"> Delivery Order</a>	
+            <a href="invoice.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id']; ?>" class="btn btn-warning"> Invoice</a> || 
+            <a href="deliveryOrder.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id']; ?>" class="btn btn-danger"> Delivery Order</a>	
 					</tr>
 					<?php
 				}
@@ -60,9 +60,11 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
 
 <script>
-    $(document).ready( function () {
-        $('#table_id').DataTable();
+    $(document).ready(function() {
+    $('#table_id').DataTable( {
+        "order": [[ 4, "desc" ]]
     } );
+} );
 </script>
 
 </body>
