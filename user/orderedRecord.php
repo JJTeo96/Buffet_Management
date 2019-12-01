@@ -44,7 +44,7 @@
 						<td><?php echo $row['createDate']; ?></td>	
 						<td>
             <a href="invoice.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id'];; ?>" class="btn btn-warning"> Invoice</a> || 
-							<a href="#del<?php echo $row['courseID']; ?>" data-toggle="modal" class="btn btn-danger"> Delivery Order</a></td>	
+            <a href="deliveryOrder.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id'];; ?>" class="btn btn-danger"> Delivery Order</a>	
 					</tr>
 					<?php
 				}
