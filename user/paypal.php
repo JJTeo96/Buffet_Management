@@ -22,7 +22,7 @@
                 VALUES(now(),'$priceMe','$trans','$rentt','$subtt','$disco','$ssttt','$price','$invoice')";
                 $result = mysqli_query($db, $query);
                 if($result){
-                    echo "insert pointhistory success";
+                    echo "Insert pointhistory success";
                 }else{
                     echo "insert pointhistory error";
                 }
