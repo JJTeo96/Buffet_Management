@@ -10,7 +10,7 @@
 <link href="vendor/assets/MDB/css/style.css" rel="stylesheet"> -->
 
 <form method="POST" action="promotion.php">
-<div class="container">
+<div class="">
 	<div style="height:50px;"></div>
 	<div class="well" style="margin:auto; padding:auto; width:80%;">
 	<h1 style="text-align:center">Order History</h1>
@@ -22,13 +22,14 @@
 				<th>Total Price</th>
 				<th>Invoice No</th>
 				<th>Bill Date</th>
-				<th>Action</th>
+				<th>Print</th>
 			</thead>
             
 			<tbody>
 			<?php
 				include('../config/database.php');
         $userID=$_SESSION['userID'];
+        $invoiceID=$row['invoice_id'];
         $query=mysqli_query($db,"select * from `invoice`
         LEFT JOIN package ON package.package_id=invoice.packageID 
         LEFT JOIN payment ON payment.invoice_id=invoice.invoice_id
@@ -41,7 +42,9 @@
 						<td><?php echo $row['price']; ?></td>	
 						<td><?php echo $row['invoice_id']; ?></td>	
 						<td><?php echo $row['createDate']; ?></td>	
-						<td><input type="button" name="getCp" value="action" class="btn btn-info"/></td>	
+						<td>
+            <a href="invoice.php?userID=<?php echo $userID; ?>&invoiceID=<?php echo $row['invoice_id'];; ?>" class="btn btn-warning"> Invoice</a> || 
+							<a href="#del<?php echo $row['courseID']; ?>" data-toggle="modal" class="btn btn-danger"> Delivery Order</a></td>	
 					</tr>
 					<?php
 				}
