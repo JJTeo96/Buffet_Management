@@ -85,6 +85,10 @@ include('../config/database.php');
                 </li>
 
                 <li>
+                    <a href="orderHistory.php">Ordered History</a>
+                </li>
+
+                <li>
                     <a href="sales.php">Sales Report</a>
                 </li>
 
