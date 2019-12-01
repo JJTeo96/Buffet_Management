@@ -426,6 +426,8 @@
                                 
                                 var promocode = document.getElementById("promocode").value;
                                 var useridd = document.getElementById("useridd").value;
+
+                                // alert(priceMe);
                         
                                 setTimeout(function () {
                                     $.ajax({
